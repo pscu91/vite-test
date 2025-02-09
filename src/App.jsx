@@ -10,7 +10,7 @@ function App() {
     <>
       <div class="mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
         <img class="size-12 shrink-0" src={viteLogo} alt="Vite Logo" />
-        <div class="flex-col max-auto text-left">
+        <div class="max-auto flex-col text-left">
           <div class="text-xl font-medium text-black dark:text-white">
             ChitChat
           </div>
@@ -28,7 +28,7 @@ function App() {
         </a>
       </div> */}
       <h1 class="text-3xl font-bold underline">Hello world!</h1>
-      <h2 className="text-blue-500 text-xl font-bold">Hello, React</h2>
+      <h2 className="text-xl font-bold text-blue-500">Hello, React</h2>
       <p className="text-lg font-medium">Hello, Typescript!</p>
 
       <p className="read-the-docs">
