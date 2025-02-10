@@ -1,7 +1,7 @@
 function Category() {
   return (
     <>
-      <nav className="flex justify-center space-x-12 border-b-2 border-slate-100 pb-4">
+      <nav className="flex justify-center space-x-12 border-slate-100 pb-4">
         <a className="category-contents-style" href="#">
           Home
         </a>
