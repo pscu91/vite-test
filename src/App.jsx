@@ -12,7 +12,7 @@ function App() {
         <ContributorsPreview />
       </div>
       <div className="w-3/4">
-        {/* <Category /> */}
+        <Category />
         <div className="flex w-full flex-wrap p-8">
           <ThumbnailCard />
           <ThumbnailCard />
