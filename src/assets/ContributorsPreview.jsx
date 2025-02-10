@@ -7,7 +7,7 @@ import contributorsProfilePic5 from "./img/contributorsProfilePic5.avif";
 function ContributorsPreview() {
   return (
     <>
-      <div className="pl-8">
+      <div className="mb-8 pl-8">
         <div className="flex items-center gap-2">
           <p className="font-semibold">Contributors</p>
           <span className="flex items-center rounded-full bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700">
