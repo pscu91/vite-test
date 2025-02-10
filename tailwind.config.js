@@ -19,9 +19,11 @@ export default {
     screens: {
       ss: "480px",
       sm: "620px",
-      sl: "768px",
-      md: "1060px",
-      lg: "1200px",
+      md: "768px",
+      lg: "1060px",
+      xl: "1200px",
+      xxl: "1536px",
+      xxxl: "2000px",
     },
   },
   corePlugins: {

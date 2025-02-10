@@ -3,7 +3,7 @@ import ThumbnailSample from "./img/ThumbnailSample.avif";
 function ThumbnailCard() {
   return (
     <>
-      <div className="mb-4 w-1/4 p-4 text-left">
+      <div className="xxxl:w-1/5 xxl:w-1/4 xl:w-1/3 mb-4 w-fit p-4 text-left lg:w-1/2">
         <img className="rounded-lg" src={ThumbnailSample} alt="thumbnail" />
         <div className="mt-4">
           <div className="text-xs font-bold text-sky-500">Private Villa</div>

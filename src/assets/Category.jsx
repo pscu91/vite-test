@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Category() {
   return (
     <>
-      <nav className="flex justify-center space-x-12 border-slate-100 pb-4">
+      <nav className="flex justify-center space-x-8 border-slate-100 lg:space-x-12">
         <Link className="category-contents-style" to="/">
           Home
         </Link>

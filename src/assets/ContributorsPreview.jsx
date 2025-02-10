@@ -14,8 +14,8 @@ function ContributorsPreview() {
             204
           </span>
         </div>
-        <div className="flex items-center gap-4">
-          <div className="mt-3 flex -space-x-2 overflow-hidden">
+        <div className="mt-3 flex flex-row flex-col items-start gap-2">
+          <div className="flex -space-x-2 overflow-hidden">
             <img
               className="contributors-preview-profile-img"
               src={contributorsProfilePic1}
@@ -42,8 +42,11 @@ function ContributorsPreview() {
               alt="contributors profile pic"
             />
           </div>
-          <div className="mt-3 text-left text-sm font-medium">
-            <a href="#" className="text-blue-500">
+          <div className="text-left text-sm font-medium">
+            <a
+              href="#"
+              className="w-fit rounded-md px-2 py-1 text-slate-500 hover:bg-purple-100"
+            >
               + 198 others
             </a>
           </div>
