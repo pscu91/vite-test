@@ -1,19 +1,21 @@
+import { Link } from "react-router-dom";
+
 function Category() {
   return (
     <>
       <nav className="flex justify-center space-x-12 border-slate-100 pb-4">
-        <a className="category-contents-style" href="#">
+        <Link className="category-contents-style" to="#">
           Home
-        </a>
-        <a className="category-contents-style" href="#">
+        </Link>
+        <Link className="category-contents-style" to="#">
           Team
-        </a>
-        <a className="category-contents-style" href="#">
+        </Link>
+        <Link className="category-contents-style" to="#">
           Project
-        </a>
-        <a className="category-contents-style" href="#">
+        </Link>
+        <Link className="category-contents-style" to="#">
           Reports
-        </a>
+        </Link>
       </nav>
     </>
   );
