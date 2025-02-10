@@ -16,12 +16,14 @@ function App() {
     <>
       <div className="xxxl:w-5/6 xl:w-3/4 w-full md:w-2/3 lg:w-2/3">
         <Category />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/project" element={<ProjectList />} />
-          <Route path="/reports" element={<ReportsList />} />
-        </Routes>
+        <div className="p-8">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/project" element={<ProjectList />} />
+            <Route path="/reports" element={<ReportsList />} />
+          </Routes>
+        </div>
       </div>
       <div className="xxxl:w-1/6 xl:w-1/4 w-0 md:w-1/3 lg:w-1/3">
         <UserProfile />

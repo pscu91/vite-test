@@ -3,7 +3,7 @@ import ThumbnailCard from "../assets/ThumbnailCard.jsx";
 function ProjectList() {
   return (
     <>
-      <div className="flex w-full flex-wrap p-8">
+      <div className="flex w-full flex-wrap">
         <ThumbnailCard />
         <ThumbnailCard />
         <ThumbnailCard />
