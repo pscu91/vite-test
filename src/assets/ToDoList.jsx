@@ -9,31 +9,31 @@ function ToDoList() {
         <div className="flex flex-col">
           <label class="flex items-center rounded-md px-2 py-1 hover:bg-purple-100">
             <input className="peer mr-2" type="checkbox" name="todo[1]" />
-            <p className="peer-checked:text-slate-400 peer-checked:line-through">
+            <p className="text-slate-800 peer-checked:text-slate-400 peer-checked:line-through">
               Create a to do list
             </p>
             <FontAwesomeIcon
-              className="ml-auto peer-checked:hidden"
+              className="ml-auto text-slate-600 peer-checked:hidden"
               icon={faXmark}
             />
           </label>
           <label class="flex items-center rounded-md px-2 py-1 hover:bg-purple-100">
             <input className="peer mr-2" type="checkbox" name="todo[2]" />
-            <p className="peer-checked:text-slate-400 peer-checked:line-through">
+            <p className="text-slate-800 peer-checked:text-slate-400 peer-checked:line-through">
               Check off first item
             </p>
             <FontAwesomeIcon
-              className="ml-auto peer-checked:hidden"
+              className="ml-auto text-slate-600 peer-checked:hidden"
               icon={faXmark}
             />
           </label>
           <label class="flex items-center rounded-md px-2 py-1 hover:bg-purple-100">
             <input className="peer mr-2" type="checkbox" name="todo[3]" />
-            <p className="peer-checked:text-slate-400 peer-checked:line-through">
+            <p className="text-slate-800 peer-checked:text-slate-400 peer-checked:line-through">
               Investigate race condition
             </p>
             <FontAwesomeIcon
-              className="ml-auto peer-checked:hidden"
+              className="ml-auto text-slate-600 peer-checked:hidden"
               icon={faXmark}
             />
           </label>
