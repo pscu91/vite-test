@@ -42,7 +42,7 @@ function ContributorsPreview() {
               alt="contributors profile pic"
             />
           </div>
-          <div className="text-left text-sm font-medium">
+          <div className="mt-1 text-left text-sm font-medium">
             <a
               href="#"
               className="w-fit rounded-md px-2 py-1 text-slate-500 hover:bg-purple-100"
