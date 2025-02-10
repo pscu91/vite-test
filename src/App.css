@@ -1,8 +1,9 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .logo {
@@ -16,6 +17,14 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.contributors-preview-profile-img {
+  @apply mx-auto inline-block h-12 rounded-full ring-2 ring-white sm:mx-0 sm:shrink-0;
+}
+
+.category-contents-style {
+  @apply rounded-lg px-3 py-2 font-semibold text-slate-600 hover:bg-purple-100 hover:text-purple-600;
 }
 
 @keyframes logo-spin {
