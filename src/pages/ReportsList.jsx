@@ -1,10 +1,15 @@
+import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import ReportCard from "../assets/ReportCard.jsx";
 
 function ReportsList() {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+    >
       <div className="px-8">
         <FontAwesomeIcon
           icon={faSearch}
@@ -27,7 +32,7 @@ function ReportsList() {
         <ReportCard />
         <ReportCard />
       </div>
-    </>
+    </motion.div>
   );
 }
 
