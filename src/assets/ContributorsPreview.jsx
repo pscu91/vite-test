@@ -1,8 +1,8 @@
-import contributorsProfilePic1 from "./img/contributorsProfilePic1.avif";
-import contributorsProfilePic2 from "./img/contributorsProfilePic2.avif";
-import contributorsProfilePic3 from "./img/contributorsProfilePic3.avif";
-import contributorsProfilePic4 from "./img/contributorsProfilePic4.avif";
-import contributorsProfilePic5 from "./img/contributorsProfilePic5.avif";
+import TeamFace1 from "./img/TeamFace1.png";
+import TeamFace2 from "./img/TeamFace2.png";
+import TeamFace3 from "./img/TeamFace3.png";
+import TeamFace4 from "./img/TeamFace4.png";
+import TeamFace5 from "./img/TeamFace5.png";
 
 function ContributorsPreview() {
   return (
@@ -18,27 +18,27 @@ function ContributorsPreview() {
           <div className="flex -space-x-2 overflow-hidden">
             <img
               className="contributors-preview-profile-img"
-              src={contributorsProfilePic1}
+              src={TeamFace1}
               alt="contributors profile pic"
             />
             <img
               className="contributors-preview-profile-img"
-              src={contributorsProfilePic2}
+              src={TeamFace2}
               alt="contributors profile pic"
             />{" "}
             <img
               className="contributors-preview-profile-img"
-              src={contributorsProfilePic3}
+              src={TeamFace3}
               alt="contributors profile pic"
             />{" "}
             <img
               className="contributors-preview-profile-img"
-              src={contributorsProfilePic4}
+              src={TeamFace4}
               alt="contributors profile pic"
             />{" "}
             <img
               className="contributors-preview-profile-img"
-              src={contributorsProfilePic5}
+              src={TeamFace5}
               alt="contributors profile pic"
             />
           </div>
