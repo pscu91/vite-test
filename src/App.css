@@ -19,6 +19,18 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.translate-center-x {
+  webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.translate-center-y {
+  webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 .contributors-preview-profile-img {
   @apply mx-auto inline-block h-12 rounded-full ring-2 ring-white sm:mx-0 sm:shrink-0;
 }
