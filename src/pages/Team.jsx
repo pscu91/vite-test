@@ -1,5 +1,10 @@
 import { motion } from "framer-motion";
 import MemberCard from "../assets/MemberCard";
+import {
+  faGithub,
+  faLinkedin,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 import TeamFace1 from "../assets/img/TeamFace1.png";
 import TeamFace2 from "../assets/img/TeamFace2.png";
 import TeamFace3 from "../assets/img/TeamFace3.png";
@@ -15,6 +20,7 @@ export const teamMembers = [
     bulletList: ["consectetur", "maximus", "lacus", "amet nunc"],
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis luctus lacus, maximus consectetur nunc aliquam congue. Morbi interdum massa at sollicitudin lobortis. Morbi ultrices nisi et nulla aliquam blandit.",
+    snsIcons: [faLinkedin, faInstagram],
   },
   {
     id: 2,
@@ -24,6 +30,7 @@ export const teamMembers = [
     bulletList: ["consectetur", "ipsum", "interdum"],
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis luctus lacus, maximus consectetur nunc aliquam congue. Morbi interdum massa at sollicitudin lobortis. Morbi ultrices nisi et nulla aliquam blandit.",
+    snsIcons: [faLinkedin, faInstagram, faGithub],
   },
   {
     id: 3,
@@ -33,6 +40,7 @@ export const teamMembers = [
     bulletList: ["consectetur", "adipiscing"],
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis luctus lacus, maximus consectetur nunc aliquam congue. Morbi interdum massa at sollicitudin lobortis. Morbi ultrices nisi et nulla aliquam blandit.",
+    snsIcons: [faLinkedin, faGithub],
   },
   {
     id: 4,
@@ -42,6 +50,7 @@ export const teamMembers = [
     bulletList: ["consectetur", "elit"],
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis luctus lacus, maximus consectetur nunc aliquam congue. Morbi interdum massa at sollicitudin lobortis. Morbi ultrices nisi et nulla aliquam blandit.",
+    snsIcons: [faLinkedin, faGithub],
   },
   {
     id: 5,
@@ -51,6 +60,7 @@ export const teamMembers = [
     bulletList: ["aliquam", "interdum", "mollis"],
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis luctus lacus, maximus consectetur nunc aliquam congue. Morbi interdum massa at sollicitudin lobortis. Morbi ultrices nisi et nulla aliquam blandit.",
+    snsIcons: [faLinkedin, faInstagram],
   },
 ];
 
