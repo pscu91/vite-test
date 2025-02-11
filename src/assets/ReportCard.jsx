@@ -23,7 +23,7 @@ function ReportCard() {
               <p className="mt-1 block w-full truncate text-lg font-medium leading-tight text-black group-hover:text-purple-600">
                 Finding customers for your new business
               </p>
-              <p className="mt-2 text-gray-500">
+              <p className="mt-2 line-clamp-3 text-gray-500">
                 Getting a new business off the ground is a lot of hard work.
                 Here are five ideas you can use to find your first customers.
               </p>
