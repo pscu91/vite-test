@@ -10,10 +10,9 @@ export default {
         accentText: "#EB5757",
         background: "#f2f2f2",
       },
-      fontFamily: {
-        // spoqa: ["SpoqaHanSansNeo-Regular"],
-        // spoqaMedium: ["SpoqaHanSansNeo-Medium"],
-        // spoqaBold: ["SpoqaHanSansNeo-Bold"],
+      fontFamily: {},
+      backgroundImage: {
+        home: "url('/src/assets/img/BgImage.jpg')",
       },
     },
     screens: {
@@ -29,5 +28,5 @@ export default {
   corePlugins: {
     preflight: true,
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

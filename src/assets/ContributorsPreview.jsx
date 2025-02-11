@@ -1,15 +1,15 @@
-import contributorsProfilePic1 from "./img/contributorsProfilePic1.avif";
-import contributorsProfilePic2 from "./img/contributorsProfilePic2.avif";
-import contributorsProfilePic3 from "./img/contributorsProfilePic3.avif";
-import contributorsProfilePic4 from "./img/contributorsProfilePic4.avif";
-import contributorsProfilePic5 from "./img/contributorsProfilePic5.avif";
+import TeamFace1 from "./img/TeamFace1.png";
+import TeamFace2 from "./img/TeamFace2.png";
+import TeamFace3 from "./img/TeamFace3.png";
+import TeamFace4 from "./img/TeamFace4.png";
+import TeamFace5 from "./img/TeamFace5.png";
 
 function ContributorsPreview() {
   return (
     <>
-      <div className="mb-8 pl-8">
+      <div className="py-4 pl-8">
         <div className="flex items-center gap-2">
-          <p className="font-semibold">Contributors</p>
+          <p className="select-none font-semibold">Contributors</p>
           <span className="flex items-center rounded-full bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700">
             204
           </span>
@@ -18,34 +18,34 @@ function ContributorsPreview() {
           <div className="flex -space-x-2 overflow-hidden">
             <img
               className="contributors-preview-profile-img"
-              src={contributorsProfilePic1}
+              src={TeamFace1}
               alt="contributors profile pic"
             />
             <img
               className="contributors-preview-profile-img"
-              src={contributorsProfilePic2}
+              src={TeamFace2}
               alt="contributors profile pic"
             />{" "}
             <img
               className="contributors-preview-profile-img"
-              src={contributorsProfilePic3}
+              src={TeamFace3}
               alt="contributors profile pic"
             />{" "}
             <img
               className="contributors-preview-profile-img"
-              src={contributorsProfilePic4}
+              src={TeamFace4}
               alt="contributors profile pic"
             />{" "}
             <img
               className="contributors-preview-profile-img"
-              src={contributorsProfilePic5}
+              src={TeamFace5}
               alt="contributors profile pic"
             />
           </div>
           <div className="mt-1 text-left text-sm font-medium">
             <a
               href="#"
-              className="w-fit rounded-md px-2 py-1 text-slate-500 hover:bg-purple-100"
+              className="w-fit rounded-md px-2 py-1 text-slate-500 transition-colors hover:bg-purple-100"
             >
               + 198 others
             </a>

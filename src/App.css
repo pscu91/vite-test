@@ -1,6 +1,5 @@
 #root {
   width: 100%;
-  padding: 2rem;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -19,12 +18,24 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.translate-center-x {
+  webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.translate-center-y {
+  webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 .contributors-preview-profile-img {
   @apply mx-auto inline-block h-12 rounded-full ring-2 ring-white sm:mx-0 sm:shrink-0;
 }
 
 .category-contents-style {
-  @apply rounded-lg px-3 py-2 font-semibold text-slate-600 hover:bg-purple-100 hover:text-purple-600;
+  @apply rounded-lg px-3 py-2 font-semibold text-slate-600 transition-colors hover:bg-purple-100 hover:text-purple-600;
 }
 
 @keyframes logo-spin {
