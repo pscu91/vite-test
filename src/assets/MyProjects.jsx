@@ -1,8 +1,10 @@
 function MyProjects() {
   return (
     <>
-      <div className="mb-4 pl-8 text-left">
-        <p className="mb-2 font-semibold">My Projects</p>
+      <details className="mb-4 pl-8 text-left" open>
+        <summary className="mb-2 select-none font-semibold">
+          My Projects
+        </summary>
         <div className="flex flex-col gap-1 pl-2 text-slate-700">
           <a href="#" className="rounded-md pl-1 hover:underline">
             Hospital Website
@@ -20,7 +22,7 @@ function MyProjects() {
             + 32 more
           </a>
         </div>
-      </div>
+      </details>
     </>
   );
 }

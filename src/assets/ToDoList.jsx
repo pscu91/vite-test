@@ -4,8 +4,8 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 function ToDoList() {
   return (
     <>
-      <div className="mb-8 pl-8 text-left">
-        <p className="mb-2 font-semibold">Today</p>
+      <details className="mb-8 pl-8 text-left" open>
+        <summary className="mb-2 select-none font-semibold">Today</summary>
         <div className="flex flex-col">
           <label class="flex items-center rounded-md px-2 py-1 transition-colors hover:bg-purple-100">
             <input className="peer mr-2" type="checkbox" name="todo[1]" />
@@ -38,7 +38,7 @@ function ToDoList() {
             />
           </label>
         </div>
-      </div>
+      </details>
     </>
   );
 }
