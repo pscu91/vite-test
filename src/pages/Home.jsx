@@ -14,7 +14,7 @@ function Home() {
           World
         </span>
       </div>
-      <button class="focus:ring-opacity-75; rounded-lg bg-purple-500 px-4 py-2 font-semibold text-white shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-400">
+      <button class="focus:ring-opacity-75; rounded-lg bg-purple-500 px-4 py-2 font-semibold text-white shadow-md transition-colors hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-400">
         Click me
       </button>
     </motion.div>

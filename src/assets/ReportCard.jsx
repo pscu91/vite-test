@@ -20,10 +20,7 @@ function ReportCard() {
               <div className="text-sm font-semibold uppercase tracking-wide text-purple-500">
                 Case study
               </div>
-              <p
-                href="#"
-                className="mt-1 block text-lg font-medium leading-tight text-black group-hover:text-purple-600"
-              >
+              <p className="mt-1 block w-full truncate text-lg font-medium leading-tight text-black group-hover:text-purple-600">
                 Finding customers for your new business
               </p>
               <p className="mt-2 text-gray-500">

@@ -9,8 +9,8 @@ function ToDoList() {
         <div className="flex flex-col">
           <label class="flex items-center rounded-md px-2 py-1 transition-colors hover:bg-purple-100">
             <input className="peer mr-2" type="checkbox" name="todo[1]" />
-            <p className="text-slate-800 peer-checked:text-slate-400 peer-checked:line-through">
-              Create a to do list
+            <p className="truncate text-slate-800 peer-checked:text-slate-400 peer-checked:line-through">
+              Create a to do lists
             </p>
             <FontAwesomeIcon
               className="ml-auto text-slate-600 peer-checked:hidden"
@@ -19,7 +19,7 @@ function ToDoList() {
           </label>
           <label class="flex items-center rounded-md px-2 py-1 transition-colors hover:bg-purple-100">
             <input className="peer mr-2" type="checkbox" name="todo[2]" />
-            <p className="text-slate-800 peer-checked:text-slate-400 peer-checked:line-through">
+            <p className="truncate text-slate-800 peer-checked:text-slate-400 peer-checked:line-through">
               Check off first item
             </p>
             <FontAwesomeIcon
@@ -29,7 +29,7 @@ function ToDoList() {
           </label>
           <label class="flex items-center rounded-md px-2 py-1 transition-colors hover:bg-purple-100">
             <input className="peer mr-2" type="checkbox" name="todo[3]" />
-            <p className="text-slate-800 peer-checked:text-slate-400 peer-checked:line-through">
+            <p className="truncate text-slate-800 peer-checked:text-slate-400 peer-checked:line-through">
               Investigate race condition
             </p>
             <FontAwesomeIcon

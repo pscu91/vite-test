@@ -6,13 +6,13 @@ function MyProjects() {
           My Projects
         </summary>
         <div className="flex flex-col gap-1 pl-2 text-slate-700">
-          <a href="#" className="rounded-md pl-1 hover:underline">
+          <a href="#" className="truncate rounded-md pl-1 hover:underline">
             Hospital Website
           </a>
-          <a href="#" className="rounded-md pl-1 hover:underline">
+          <a href="#" className="truncate rounded-md pl-1 hover:underline">
             Food SNS Service
           </a>
-          <a href="#" className="rounded-md pl-1 hover:underline">
+          <a href="#" className="truncate rounded-md pl-1 hover:underline">
             Productivity App
           </a>
           <a
