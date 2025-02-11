@@ -11,7 +11,7 @@ function ReportCard() {
           >
             <div className="xxxl:flex-shrink-0">
               <img
-                className="h-48 w-full object-cover xxxl:w-48"
+                className="h-48 w-full object-cover xxxl:w-auto"
                 src={Photo}
                 alt="Man looking at item at a store"
               />

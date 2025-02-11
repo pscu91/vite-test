@@ -3,7 +3,7 @@ import erinProfilePic from "./img/erin.jpg";
 function UserProfile() {
   return (
     <>
-      <div className="mb-4 flex flex-col gap-2 rounded-xl bg-white p-8 sm:flex-row sm:items-center sm:gap-6 sm:py-4">
+      <div className="mb-6 mt-8 flex flex-col gap-2 rounded-xl bg-white p-8 sm:flex-row sm:items-center sm:gap-6 sm:py-4">
         <img
           className="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0"
           src={erinProfilePic}
