@@ -15,7 +15,7 @@ function MyProjects() {
           </a>
           <a
             href="#"
-            className="w-fit rounded-md px-2 py-1 text-sm text-slate-500 hover:bg-purple-100"
+            className="w-fit rounded-md px-2 py-1 text-sm text-slate-500 transition-colors hover:bg-purple-100"
           >
             + 32 more
           </a>
