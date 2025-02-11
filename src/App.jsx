@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import "./App.css";
+import Border from "./assets/Border.jsx";
 import UserProfile from "./assets/UserProfile.jsx";
 import MyProjects from "./assets/MyProjects.jsx";
 import ToDoList from "./assets/ToDoList.jsx";
@@ -30,10 +31,12 @@ function App() {
           </AnimatePresence>
         </div>
       </div>
-      <div className="w-0 md:w-1/3 lg:w-1/3 xl:w-1/4 xxxl:w-1/6">
+      <div className="hidden lg:block lg:w-1/3 xl:w-1/4 xxxl:w-1/6">
         <UserProfile />
+        <Border />
         <MyProjects />
         <ToDoList />
+        <Border />
         <ContributorsPreview />
       </div>
     </>
