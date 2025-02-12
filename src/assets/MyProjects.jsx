@@ -3,7 +3,7 @@ import MyProjectItem from "./MyProjectItem";
 function MyProjects() {
   return (
     <>
-      <details className="mb-4 pl-8 text-left" open>
+      <details className="mb-4 pl-6 text-left" open>
         <summary className="mb-2 select-none font-semibold">
           My Projects
         </summary>
