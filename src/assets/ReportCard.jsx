@@ -7,16 +7,16 @@ function ReportCard() {
         <div className="overflow-hidden rounded-xl bg-white shadow-md">
           <a
             href="#"
-            className="group transition-opacity hover:opacity-80 xxxl:flex"
+            className="group transition-opacity hover:opacity-80 xxl:flex"
           >
-            <div className="xxxl:flex-shrink-0">
+            <div className="xxl:flex-shrink-0">
               <img
-                className="h-48 w-full object-cover xxxl:w-auto"
+                className="h-48 w-full object-cover xxl:w-auto"
                 src={Photo}
                 alt="Man looking at item at a store"
               />
             </div>
-            <div className="p-6 text-left xxxl:p-8">
+            <div className="p-6 text-left xxl:p-8">
               <div className="text-sm font-semibold uppercase tracking-wide text-purple-500">
                 Case study
               </div>
