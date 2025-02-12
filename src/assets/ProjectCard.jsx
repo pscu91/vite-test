@@ -9,7 +9,7 @@ function ProjectCard() {
         className="group mb-4 w-fit p-4 text-left transition-opacity hover:opacity-80 lg:w-1/2 xl:w-1/3 xxl:w-1/4 xxxl:w-1/5"
       >
         <img className="rounded-lg" src={ThumbnailSample} alt="thumbnail" />
-        <div className="mt-4">
+        <div className="mt-4 px-2">
           <div className="text-xs font-bold text-purple-500">Private Villa</div>
           <div className="mb-2 mt-1">
             <div
