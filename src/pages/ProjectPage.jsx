@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import ReportCard from "../assets/ReportCard.jsx";
-import ProjectCard from "../assets/ProjectCard.jsx";
+import ReportCard from "../assets/ReportCard";
+import ProjectCard from "../assets/ProjectCard";
 import TeamFace1 from "../assets/img/TeamFace1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -125,10 +125,10 @@ function ProjectList() {
 
           <div className="mt-12 flex flex-col items-center space-y-4 py-16">
             <img src={TeamFace1} className="h-20 w-20 rounded-full" />
-            <div className="space-y-2">
+            <div className="space-y-2 text-center">
               <p className="text-2xl font-semibold">Hoyeon Lee</p>
               <p className="text-lg font-semibold text-purple-600">CEO</p>
-              <div className="flex gap-2">
+              <div className="flex justify-center gap-2">
                 <a
                   href="#"
                   className="text-xl text-slate-600 transition-colors hover:text-purple-600"

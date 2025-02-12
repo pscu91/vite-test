@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import ProjectCard from "../assets/ProjectCard.jsx";
-import CreateCard from "../assets/CreateCard.jsx";
-import Filter from "../assets/Filter.jsx";
+import ProjectCard from "../assets/ProjectCard";
+import CreateCard from "../assets/CreateCard";
+import Filter from "../assets/Filter";
 
 function ProjectList() {
   return (

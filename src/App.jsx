@@ -2,16 +2,16 @@ import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import "./App.css";
-import UserProfile from "./assets/UserProfile.jsx";
-import MyProjects from "./assets/MyProjects.jsx";
-import ToDoList from "./assets/ToDoList.jsx";
-import ContributorsPreview from "./assets/ContributorsPreview.jsx";
-import Category from "./assets/Category.jsx";
-import Home from "./pages/Home.jsx";
-import Team from "./pages/Team.jsx";
-import ProjectList from "./pages/ProjectList.jsx";
-import ProjectPage from "./pages/ProjectPage.jsx";
-import ReportsList from "./pages/ReportsList.jsx";
+import UserProfile from "./assets/UserProfile";
+import MyProjects from "./assets/MyProjects";
+import ToDoList from "./assets/ToDoList";
+import ContributorsPreview from "./assets/ContributorsPreview";
+import Category from "./assets/Category";
+import Home from "./pages/Home";
+import Team from "./pages/Team";
+import ProjectList from "./pages/ProjectList";
+import ProjectPage from "./pages/ProjectPage";
+import ReportsList from "./pages/ReportsList";
 
 function App() {
   const location = useLocation();
