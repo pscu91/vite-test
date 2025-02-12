@@ -10,7 +10,9 @@ function ProjectPage() {
   const { id } = useParams();
   const indexId = Number(id);
   const indexData = projectData.find((item) => item.id === indexId);
-  const authorData = memberData.find((member) => member.id === indexData.id);
+  const authorData = memberData.find(
+    (member) => member.id === indexData.author,
+  );
 
   return (
     <motion.div
