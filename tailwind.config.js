@@ -13,6 +13,7 @@ export default {
       fontFamily: {},
       backgroundImage: {
         home: "url('/src/assets/img/BgImage.jpg')",
+        thumbnail: "url('/src/assets/img/ThumbnailSample.jpg')",
       },
     },
     screens: {

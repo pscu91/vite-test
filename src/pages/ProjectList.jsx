@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import ThumbnailCard from "../assets/ThumbnailCard.jsx";
+import ProjectCard from "../assets/ProjectCard.jsx";
 import CreateCard from "../assets/CreateCard.jsx";
 
 function ProjectList() {
@@ -19,14 +19,14 @@ function ProjectList() {
       </div>
       <div className="flex w-full flex-wrap justify-center md:justify-start">
         <CreateCard />
-        <ThumbnailCard />
-        <ThumbnailCard />
-        <ThumbnailCard />
-        <ThumbnailCard />
-        <ThumbnailCard />
-        <ThumbnailCard />
-        <ThumbnailCard />
-        <ThumbnailCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
       </div>
     </motion.div>
   );

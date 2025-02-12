@@ -10,6 +10,7 @@ import Category from "./assets/Category.jsx";
 import Home from "./pages/Home.jsx";
 import Team from "./pages/Team.jsx";
 import ProjectList from "./pages/ProjectList.jsx";
+import ProjectPage from "./pages/ProjectPage.jsx";
 import ReportsList from "./pages/ReportsList.jsx";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
               <Route path="/team" element={<Team />} />
               <Route path="/project" element={<ProjectList />} />
               <Route path="/reports" element={<ReportsList />} />
+              <Route path="/project/page" element={<ProjectPage />} />
             </Routes>
           </AnimatePresence>
         </div>

@@ -22,7 +22,7 @@ function ReportsList() {
           name="search"
         />
       </div>
-      <div className="flex flex-wrap p-4">
+      <div className="flex flex-wrap p-4 xl:px-24 xxxl:px-48">
         <ReportCard />
         <ReportCard />
         <ReportCard />

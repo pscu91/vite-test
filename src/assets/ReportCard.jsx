@@ -3,7 +3,7 @@ import Photo from "../assets/img/Photo.avif";
 function ReportCard() {
   return (
     <>
-      <div className="w-full p-4 xl:w-1/2">
+      <div className="w-full p-4">
         <div className="overflow-hidden rounded-xl bg-white shadow-md">
           <a
             href="#"
