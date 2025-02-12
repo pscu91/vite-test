@@ -1,5 +1,5 @@
 import ContributorsPreviewItem from "./ContributorsPreviewItem";
-import { teamMembers } from "../data/MemberData";
+import { memberData } from "../data/MemberData";
 
 function ContributorsPreview() {
   return (
@@ -13,7 +13,7 @@ function ContributorsPreview() {
         </div>
         <div className="mt-3 flex flex-row flex-col items-start gap-2">
           <div className="flex -space-x-2 overflow-hidden">
-            {teamMembers.slice(0, 5).map((member) => (
+            {memberData.slice(0, 5).map((member) => (
               <ContributorsPreviewItem key={member.id} member={member} />
             ))}
           </div>

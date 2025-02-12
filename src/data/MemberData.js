@@ -4,13 +4,14 @@ import TeamFace3 from "../assets/img/TeamFace3.png";
 import TeamFace4 from "../assets/img/TeamFace4.png";
 import TeamFace5 from "../assets/img/TeamFace5.png";
 import TeamFace6 from "../assets/img/TeamFace6.png";
+
 import {
   faGithub,
   faLinkedin,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 
-export const teamMembers = [
+export const memberData = [
   {
     id: 1,
     name: "Hoyeon Lee",

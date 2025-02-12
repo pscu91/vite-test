@@ -1,6 +1,6 @@
-import { teamMembers } from "../data/MemberData";
+import { memberData } from "../data/MemberData";
 
-const userData = teamMembers.find((member) => member.id === 1);
+const userData = memberData.find((member) => member.id === 1);
 
 function UserProfile() {
   return (

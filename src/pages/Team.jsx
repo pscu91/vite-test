@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import MemberCard from "../assets/MemberCard";
-import { teamMembers } from "../data/MemberData";
+import { memberData } from "../data/MemberData";
 
 function Team() {
   return (
@@ -16,7 +16,7 @@ function Team() {
           </span>
         </div>
         <div className="flex w-full flex-wrap justify-center gap-12 p-4">
-          {teamMembers.map((member) => (
+          {memberData.map((member) => (
             <MemberCard key={member.id} member={member} />
           ))}
         </div>
