@@ -16,31 +16,46 @@ function ContributorsPreview() {
         </div>
         <div className="mt-3 flex flex-row flex-col items-start gap-2">
           <div className="flex -space-x-2 overflow-hidden">
-            <img
-              className="contributors-preview-profile-img"
-              src={TeamFace1}
-              alt="contributors profile pic"
-            />
-            <img
-              className="contributors-preview-profile-img"
-              src={TeamFace2}
-              alt="contributors profile pic"
-            />{" "}
-            <img
-              className="contributors-preview-profile-img"
-              src={TeamFace3}
-              alt="contributors profile pic"
-            />{" "}
-            <img
-              className="contributors-preview-profile-img"
-              src={TeamFace4}
-              alt="contributors profile pic"
-            />{" "}
-            <img
-              className="contributors-preview-profile-img"
-              src={TeamFace5}
-              alt="contributors profile pic"
-            />
+            <div className="contributors-wrap">
+              <img
+                className="contributors-preview-profile-img"
+                src={TeamFace1}
+                alt="contributors profile pic"
+              />
+              <div className="tooltip text-slate-800">Hoyeon Lee</div>
+            </div>
+            <div className="contributors-wrap">
+              <img
+                className="contributors-preview-profile-img"
+                src={TeamFace2}
+                alt="contributors profile pic"
+              />
+              <div className="tooltip text-slate-800">Seoyeon Park</div>
+            </div>
+            <div className="contributors-wrap">
+              <img
+                className="contributors-preview-profile-img"
+                src={TeamFace3}
+                alt="contributors profile pic"
+              />
+              <div className="tooltip text-slate-800">Dowoom Kim</div>
+            </div>
+            <div className="contributors-wrap">
+              <img
+                className="contributors-preview-profile-img"
+                src={TeamFace4}
+                alt="contributors profile pic"
+              />
+              <div className="tooltip text-slate-800">Yeondoo Hwang</div>
+            </div>
+            <div className="contributors-wrap">
+              <img
+                className="contributors-preview-profile-img"
+                src={TeamFace5}
+                alt="contributors profile pic"
+              />
+              <div className="tooltip text-slate-800">Shinwoo Ji</div>
+            </div>
           </div>
           <div className="mt-1 text-left text-sm font-medium">
             <a
