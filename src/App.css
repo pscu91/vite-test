@@ -23,7 +23,6 @@
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
 }
-
 .translate-center-y {
   webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -33,7 +32,9 @@
 .contributors-preview-profile-img {
   @apply mx-auto inline-block h-12 cursor-pointer rounded-full ring-2 ring-white transition-opacity hover:opacity-80 sm:mx-0 sm:shrink-0;
 }
-
+.contributors-wrap:hover .tooltip {
+  display: block;
+}
 .tooltip {
   position: absolute;
   background: rgba(255, 255, 255, 1);
@@ -44,9 +45,6 @@
   border-radius: 5px;
   text-align: center;
   display: none;
-}
-.contributors-wrap:hover .tooltip {
-  display: block;
 }
 
 .category-contents-style {
