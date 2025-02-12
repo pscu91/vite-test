@@ -1,4 +1,4 @@
-import ThumbnailSample from "./img/ThumbnailSample.jpg";
+import ThumbnailSample from "./img/ThumbnailSample.jpeg";
 import { Link } from "react-router-dom";
 
 function ProjectCard() {
