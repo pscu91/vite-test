@@ -27,11 +27,12 @@ function App() {
               <Route path="/team" element={<Team />} />
               <Route path="/project" element={<ProjectList />} />
               <Route path="/reports" element={<ReportsList />} />
-              <Route path="/project/page" element={<ProjectPage />} />
+              <Route path="/project/page/:id" element={<ProjectPage />} />
             </Routes>
           </AnimatePresence>
         </div>
       </div>
+
       <div className="hidden divide-y px-4 lg:block lg:w-1/3 xl:w-1/4 xxxl:w-1/6">
         <UserProfile />
         <div className="py-4">

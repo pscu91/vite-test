@@ -11,6 +11,7 @@ function ContributorsPreview() {
             204
           </span>
         </div>
+
         <div className="mt-3 flex flex-row flex-col items-start gap-2">
           <div className="flex -space-x-2 overflow-hidden">
             {memberData.slice(0, 5).map((member) => (

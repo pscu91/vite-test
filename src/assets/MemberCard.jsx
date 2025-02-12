@@ -8,6 +8,7 @@ function MemberCard({ member }) {
         alt={`${member.name} profile`}
         className="mb-8 h-40 w-40 rounded-full"
       />
+
       <div className="w-full space-y-2 p-4 text-center">
         <p className="text-2xl font-semibold">{member.name}</p>
         <p className="text-lg font-semibold text-purple-600">
@@ -25,6 +26,7 @@ function MemberCard({ member }) {
             ))}
         </div>
       </div>
+
       <div className="text-slate-800">
         <ul className="list-disc pl-10 pt-4">
           {member.bulletList.map((item, index) => (
