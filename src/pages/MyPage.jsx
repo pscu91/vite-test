@@ -50,7 +50,7 @@ function Contributors() {
                 className="pointer-events-none absolute right-3 top-3 z-10 transform pt-0.5 text-purple-600"
               />
               <select
-                class="relative block w-full appearance-none rounded border border-purple-200 bg-purple-50 px-4 py-3 pr-8 leading-tight text-slate-800 focus:border-slate-800 focus:bg-white focus:outline-none"
+                className="relative block w-full appearance-none rounded border border-purple-200 bg-purple-50 px-4 py-3 pr-8 leading-tight text-slate-800 focus:border-slate-800 focus:bg-white focus:outline-none"
                 id="grid-state"
                 value={userData.position}
               >

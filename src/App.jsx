@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import "./App.css";
@@ -14,8 +14,16 @@ import ProjectPage from "./pages/ProjectPage";
 import ReportsList from "./pages/ReportsList";
 import Contributors from "./pages/Contributors";
 import MyPage from "./pages/MyPage";
+import NotFound from "./pages/NotFound";
 
 function App() {
+  // 서버 체크
+  // useEffect(() => {
+  //   fetch("http://localhost:8080/api")
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data));
+  // });
+
   const location = useLocation();
 
   return (
@@ -26,12 +34,16 @@ function App() {
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/main" element={<Home />} />
+              <Route path="/index" element={<Home />} />
               <Route path="/team" element={<Team />} />
               <Route path="/project" element={<ProjectList />} />
               <Route path="/reports" element={<ReportsList />} />
               <Route path="/project/page/:id" element={<ProjectPage />} />
               <Route path="/contributors" element={<Contributors />} />
               <Route path="/mypage" element={<MyPage />} />
+              <Route path="/*" element={<NotFound />} />
             </Routes>
           </AnimatePresence>
         </div>
