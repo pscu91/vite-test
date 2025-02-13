@@ -1,4 +1,5 @@
 import { memberData } from "../data/MemberData";
+import { Link } from "react-router-dom";
 
 const userData = memberData.find((member) => member.id === 1);
 
@@ -18,9 +19,11 @@ function UserProfile() {
           <p className="truncate font-medium text-gray-500">
             {userData.position}
           </p>
-          <button className="rounded-full border-purple-200 bg-white px-4 py-1 text-purple-600 transition-colors hover:border-transparent hover:bg-purple-600 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-purple-500 active:bg-purple-700">
-            My Page
-          </button>
+          <Link to="/mypage">
+            <button className="rounded-full border-purple-200 bg-white px-4 py-1 text-purple-600 transition-colors hover:border-transparent hover:bg-purple-600 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-purple-500 active:bg-purple-700">
+              My Page
+            </button>
+          </Link>
         </div>
       </div>
     </>

@@ -20,7 +20,7 @@ function ProjectPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
-      <div>
+      <div className="bg-slate-50">
         <div
           className="bg-cover bg-center"
           style={{ backgroundImage: `url(${indexData.thumbnail})` }}

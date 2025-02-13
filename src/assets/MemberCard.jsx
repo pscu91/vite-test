@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function MemberCard({ member }) {
   return (
-    <div className="mb-4 flex w-fit max-w-sm flex-col items-center divide-y rounded-md bg-white p-6 text-left drop-shadow-xl transition-opacity lg:w-1/2 lg:max-w-none xl:w-1/3 xxl:w-1/4">
+    <div className="mb-4 flex w-fit max-w-sm flex-col items-center divide-y rounded-md border border-slate-50 bg-white p-6 text-left drop-shadow-xl transition-opacity lg:w-1/2 lg:max-w-none xl:w-1/3 xxl:w-1/4">
       <img
         src={member.image}
         alt={`${member.name} profile`}

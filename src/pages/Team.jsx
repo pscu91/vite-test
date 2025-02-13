@@ -16,7 +16,7 @@ function Team() {
           </span>
         </div>
 
-        <div className="flex w-full flex-wrap justify-center gap-12 p-4">
+        <div className="flex w-full flex-wrap justify-center gap-12 p-8 lg:p-4">
           {memberData.map((member) => (
             <MemberCard key={member.id} member={member} />
           ))}
