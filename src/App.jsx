@@ -12,13 +12,15 @@ import Team from "./pages/Team";
 import ProjectList from "./pages/ProjectList";
 import ProjectPage from "./pages/ProjectPage";
 import ReportsList from "./pages/ReportsList";
+import Contributors from "./pages/Contributors";
+import MyPage from "./pages/MyPage";
 
 function App() {
   const location = useLocation();
 
   return (
     <>
-      <div className="w-full md:w-2/3 lg:w-2/3 xl:w-3/4 xxxl:w-5/6">
+      <div className="w-full lg:w-2/3 xl:w-3/4 xxxl:w-5/6">
         <Category />
         <div className="h-full">
           <AnimatePresence mode="wait">
@@ -28,6 +30,8 @@ function App() {
               <Route path="/project" element={<ProjectList />} />
               <Route path="/reports" element={<ReportsList />} />
               <Route path="/project/page/:id" element={<ProjectPage />} />
+              <Route path="/contributors" element={<Contributors />} />
+              <Route path="/mypage" element={<MyPage />} />
             </Routes>
           </AnimatePresence>
         </div>

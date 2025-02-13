@@ -4,7 +4,7 @@ import { faFolderPlus } from "@fortawesome/free-solid-svg-icons";
 function CreateCard() {
   return (
     <>
-      <div className="xxxl:w-1/5 xxl:w-1/4 xl:w-1/3 mb-4 w-full p-4 lg:w-1/2">
+      <div className="mb-4 w-full p-6 lg:w-1/2 xl:w-1/3 xxl:w-1/4 xxxl:w-1/5">
         <a
           href="#"
           className="group flex h-full w-full flex-col justify-center gap-4 rounded-lg border-2 border-purple-300 bg-purple-100 p-4 text-left transition-colors hover:border-transparent hover:bg-purple-600 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-purple-500 active:bg-purple-700"

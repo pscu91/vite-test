@@ -5,7 +5,7 @@ function ProjectCard({ index }) {
     <>
       <Link
         to={`/project/page/${index.id}`}
-        className="group mb-4 w-fit p-4 text-left transition-opacity hover:opacity-80 lg:w-1/2 xl:w-1/3 xxl:w-1/4 xxxl:w-1/5"
+        className="group mb-4 w-fit px-6 py-4 text-left transition-opacity hover:opacity-80 lg:w-1/2 lg:p-6 xl:w-1/3 xxl:w-1/4 xxxl:w-1/5"
       >
         <img className="rounded-lg" src={index.thumbnail} alt="thumbnail" />
         <div className="mt-4 px-2">
