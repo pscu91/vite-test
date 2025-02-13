@@ -17,11 +17,12 @@ import MyPage from "./pages/MyPage";
 import NotFound from "./pages/NotFound";
 
 function App() {
-  useEffect(() => {
-    fetch("http://localhost:8080/api")
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  });
+  // 서버 체크
+  // useEffect(() => {
+  //   fetch("http://localhost:8080/api")
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data));
+  // });
 
   const location = useLocation();
 
