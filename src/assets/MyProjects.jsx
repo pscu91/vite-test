@@ -1,5 +1,4 @@
 import MyProjectItem from "./MyProjectItem";
-import { Link } from "react-router-dom";
 
 function MyProjects() {
   return (
@@ -12,12 +11,12 @@ function MyProjects() {
           <MyProjectItem>Hospital Website</MyProjectItem>
           <MyProjectItem>Food SNS Service</MyProjectItem>
           <MyProjectItem>Productivity App</MyProjectItem>
-          <Link
+          <a
             className="w-fit rounded-md px-2 py-1 text-sm text-slate-500 transition-colors hover:bg-purple-100"
-            to="/project"
+            href="#"
           >
             + 32 more
-          </Link>
+          </a>
         </div>
       </details>
     </>

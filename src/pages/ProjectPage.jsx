@@ -39,13 +39,13 @@ function ProjectPage() {
         <div className="m-auto w-4/5 divide-y py-8 text-left lg:w-2/3">
           <div>
             <p className="py-8 text-6xl">{indexData.headerContents}</p>
-            <p className="pb-4 text-xl">
+            <p className="pb-4 text-xl first-letter:float-left first-letter:mr-3 first-letter:text-7xl first-letter:font-bold">
               {indexData.contents}
               {indexData.contents}
               {indexData.contents}
             </p>
             <p className="py-8 text-6xl">{indexData.headerContents}</p>
-            <p className="pb-4 text-xl">
+            <p className="pb-4 text-xl first-letter:float-left first-letter:mr-3 first-letter:text-7xl first-letter:font-bold">
               {indexData.contents}
               {indexData.contents}
               {indexData.contents}
