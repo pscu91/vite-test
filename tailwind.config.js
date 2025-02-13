@@ -28,5 +28,4 @@ export default {
   corePlugins: {
     preflight: true,
   },
-  plugins: [require("@tailwindcss/line-clamp")],
 };
