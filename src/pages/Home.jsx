@@ -6,7 +6,7 @@ function Home() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
-      className="bg-home flex h-full px-8 pb-40 lg:px-0 lg:pb-96"
+      className="flex h-full bg-home px-8 pb-40 lg:px-0 lg:pb-96"
     >
       <div className="m-auto flex h-fit w-fit transform flex-col items-center justify-center rounded-3xl bg-white/50 p-12 drop-shadow-xl backdrop-blur-lg transition-transform hover:skew-y-12">
         <div className="mb-8 text-6xl font-extrabold leading-none tracking-tight transition-all hover:blur-md">
@@ -14,10 +14,10 @@ function Home() {
             Hello World
           </span>
         </div>
-        <blockquote class="mb-8 text-center text-2xl font-semibold italic text-slate-900">
+        <blockquote className="mb-8 text-center text-2xl font-semibold italic text-slate-900">
           When you look
-          <span class="relative inline-block before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-pink-500">
-            <span class="relative text-white">annoyed</span>
+          <span className="relative inline-block before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-pink-500">
+            <span className="relative text-white">annoyed</span>
           </span>
           all the time,
           <br />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import "./App.css";
@@ -16,6 +16,12 @@ import Contributors from "./pages/Contributors";
 import MyPage from "./pages/MyPage";
 
 function App() {
+  useEffect(() => {
+    fetch("http://localhost:8080/api")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  });
+
   const location = useLocation();
 
   return (

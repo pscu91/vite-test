@@ -19,7 +19,7 @@ function Contributors() {
           <table>
             <tbody>
               {memberData.map((member) => (
-                <tr class="text-left text-lg odd:bg-white even:bg-slate-50 [&>*]:px-8 [&>*]:py-4">
+                <tr className="text-left text-lg odd:bg-white even:bg-slate-50 [&>*]:px-8 [&>*]:py-4">
                   <td>
                     <img
                       src={member.image}

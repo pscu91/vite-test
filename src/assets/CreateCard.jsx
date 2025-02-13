@@ -14,9 +14,9 @@ function CreateCard() {
               className="group-hover:text-white"
               icon={faFolderPlus}
             />
-            <h3 class="group-hover:text-white">New project</h3>
+            <h3 className="group-hover:text-white">New project</h3>
           </div>
-          <p class="text-gray-500 group-hover:text-white">
+          <p className="text-gray-500 group-hover:text-white">
             Create a new project from a variety of starting templates.
           </p>
         </a>
