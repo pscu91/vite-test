@@ -15,6 +15,7 @@ export const memberData = [
   {
     id: 1,
     name: "Hoyeon Lee",
+    email: "hoyeon.lee@supernova.com",
     position: "CEO",
     image: TeamFace1,
     bulletList: ["consectetur", "maximus", "lacus", "amet nunc"],
@@ -25,6 +26,7 @@ export const memberData = [
   {
     id: 2,
     name: "Seoyeon Park",
+    email: "seoyeon.park@supernova.com",
     position: "CTO",
     image: TeamFace2,
     bulletList: ["consectetur", "ipsum", "interdum"],
@@ -35,6 +37,7 @@ export const memberData = [
   {
     id: 3,
     name: "Dowoom Kim",
+    email: "dowoom.kim@supernova.com",
     position: "DevOps Engineer",
     image: TeamFace3,
     bulletList: ["consectetur", "adipiscing"],
@@ -45,6 +48,7 @@ export const memberData = [
   {
     id: 4,
     name: "Yeondoo Hwang",
+    email: "yeondoo.hwang@supernova.com",
     position: "Product Engineer",
     image: TeamFace4,
     bulletList: ["consectetur", "elit"],
@@ -55,6 +59,7 @@ export const memberData = [
   {
     id: 5,
     name: "Shinwoo Ji",
+    email: "shinwoo.ji@supernova.com",
     position: "Product Designer",
     image: TeamFace5,
     bulletList: ["aliquam", "interdum", "mollis"],
@@ -65,6 +70,7 @@ export const memberData = [
   {
     id: 6,
     name: "Dayae Han",
+    email: "dayae.han@supernova.com",
     position: "Product Marketer",
     image: TeamFace6,
     bulletList: ["interdum", "mollis"],

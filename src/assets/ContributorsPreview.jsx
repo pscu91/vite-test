@@ -1,5 +1,6 @@
 import ContributorsPreviewItem from "./ContributorsPreviewItem";
 import { memberData } from "../data/MemberData";
+import { Link } from "react-router-dom";
 
 function ContributorsPreview() {
   return (
@@ -12,19 +13,19 @@ function ContributorsPreview() {
           </span>
         </div>
 
-        <div className="mt-3 flex flex-row flex-col items-start gap-2">
+        <div className="mt-3 flex flex-col items-start gap-2">
           <div className="flex -space-x-2 overflow-hidden">
             {memberData.slice(0, 5).map((member) => (
               <ContributorsPreviewItem key={member.id} member={member} />
             ))}
           </div>
           <div className="mt-1 text-left text-sm font-medium">
-            <a
-              href="#"
+            <Link
+              to="/contributors"
               className="w-fit rounded-md px-2 py-1 text-slate-500 transition-colors hover:bg-purple-100"
             >
               + 198 others
-            </a>
+            </Link>
           </div>
         </div>
       </div>

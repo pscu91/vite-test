@@ -12,6 +12,7 @@ import Team from "./pages/Team";
 import ProjectList from "./pages/ProjectList";
 import ProjectPage from "./pages/ProjectPage";
 import ReportsList from "./pages/ReportsList";
+import Contributors from "./pages/Contributors";
 
 function App() {
   const location = useLocation();
@@ -28,6 +29,7 @@ function App() {
               <Route path="/project" element={<ProjectList />} />
               <Route path="/reports" element={<ReportsList />} />
               <Route path="/project/page/:id" element={<ProjectPage />} />
+              <Route path="/contributors" element={<Contributors />}></Route>
             </Routes>
           </AnimatePresence>
         </div>
