@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <div className="w-full md:w-2/3 lg:w-2/3 xl:w-3/4 xxxl:w-5/6">
+      <div className="w-full lg:w-2/3 xl:w-3/4 xxxl:w-5/6">
         <Category />
         <div className="h-full">
           <AnimatePresence mode="wait">
