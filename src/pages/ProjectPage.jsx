@@ -27,8 +27,12 @@ function ProjectPage() {
           style={{ backgroundImage: `url(${indexData.thumbnail})` }}
         >
           <div className="space-y-4 bg-black/50 py-24 text-center backdrop-blur-sm transition-all ease-in hover:backdrop-blur-0">
-            <p className="text-8xl text-white">{indexData.title}</p>
-            <p className="text-3xl text-white/80">{indexData.subtitle}</p>
+            <p className="text-5xl text-white sm:text-6xl xl:text-8xl">
+              {indexData.title}
+            </p>
+            <p className="text-xl text-white/80 sm:text-3xl">
+              {indexData.subtitle}
+            </p>
             <div className="flex justify-center space-x-2 text-white/70">
               <p className="text-xl">{authorData.name}</p>
               <p>|</p>
@@ -37,7 +41,7 @@ function ProjectPage() {
           </div>
         </div>
 
-        <div className="m-auto w-4/5 divide-y rounded-lg bg-white py-8 text-left lg:w-2/3 lg:px-24 lg:drop-shadow-lg">
+        <div className="m-auto w-4/5 divide-y rounded-lg bg-white py-8 text-left lg:px-24 lg:drop-shadow-lg xl:w-2/3">
           <div>
             <p className="py-8 text-6xl">{indexData.headerContents}</p>
             <p className="pb-4 text-xl first-letter:float-left first-letter:mr-3 first-letter:text-7xl first-letter:font-bold">
