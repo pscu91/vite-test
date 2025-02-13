@@ -14,6 +14,7 @@ import ProjectPage from "./pages/ProjectPage";
 import ReportsList from "./pages/ReportsList";
 import Contributors from "./pages/Contributors";
 import MyPage from "./pages/MyPage";
+import NotFound from "./pages/NotFound";
 
 function App() {
   useEffect(() => {
@@ -32,12 +33,16 @@ function App() {
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/main" element={<Home />} />
+              <Route path="/index" element={<Home />} />
               <Route path="/team" element={<Team />} />
               <Route path="/project" element={<ProjectList />} />
               <Route path="/reports" element={<ReportsList />} />
               <Route path="/project/page/:id" element={<ProjectPage />} />
               <Route path="/contributors" element={<Contributors />} />
               <Route path="/mypage" element={<MyPage />} />
+              <Route path="/*" element={<NotFound />} />
             </Routes>
           </AnimatePresence>
         </div>
