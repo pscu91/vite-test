@@ -14,7 +14,7 @@ import ProjectPage from "./pages/ProjectPage";
 import ReportsList from "./pages/ReportsList";
 import Contributors from "./pages/Contributors";
 import MyPage from "./pages/MyPage";
-import Kanban from "./pages/KanBan";
+import Kanban from "./pages/Kanban";
 import NotFound from "./pages/NotFound";
 
 function App() {
