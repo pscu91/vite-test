@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import PageTitle from "../assets/PageTitle";
 
 function Home() {
   return (
@@ -10,9 +11,7 @@ function Home() {
     >
       <div className="m-auto flex h-fit w-fit transform flex-col items-center justify-center rounded-3xl bg-white/50 p-12 drop-shadow-xl backdrop-blur-lg transition-transform hover:skew-y-12">
         <div className="mb-8 text-6xl font-extrabold leading-none tracking-tight transition-all hover:blur-md">
-          <span className="select-none bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent drop-shadow-lg">
-            Hello World
-          </span>
+          <PageTitle>Hello World</PageTitle>
         </div>
         <blockquote className="mb-8 text-center text-2xl font-semibold italic text-slate-900">
           When you look
