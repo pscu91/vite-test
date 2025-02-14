@@ -3,7 +3,7 @@ import { useDroppable } from "@dnd-kit/core";
 
 const DroppableColumn = ({ id, children, title }) => {
   const { setNodeRef, isOver } = useDroppable({ id });
-  const backgroundColor = isOver ? "bg-green-100" : "bg-slate-50";
+  const backgroundColor = isOver ? "bg-purple-100" : "bg-slate-50";
 
   return (
     <div
