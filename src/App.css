@@ -48,7 +48,7 @@
 }
 
 .category-contents-style {
-  @apply rounded-lg px-3 py-2 font-semibold text-slate-600 transition-colors hover:bg-purple-100 hover:text-purple-600;
+  @apply rounded-lg px-3 py-2 font-semibold text-slate-600 transition-colors hover:bg-purple-100 hover:text-purple-600 sm:px-4;
 }
 
 .category-contents-style:focus {

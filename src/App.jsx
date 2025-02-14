@@ -14,6 +14,7 @@ import ProjectPage from "./pages/ProjectPage";
 import ReportsList from "./pages/ReportsList";
 import Contributors from "./pages/Contributors";
 import MyPage from "./pages/MyPage";
+import Kanban from "./pages/Kanban";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
               <Route path="/project/page/:id" element={<ProjectPage />} />
               <Route path="/contributors" element={<Contributors />} />
               <Route path="/mypage" element={<MyPage />} />
+              <Route path="/kanban" element={<Kanban />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>
           </AnimatePresence>
