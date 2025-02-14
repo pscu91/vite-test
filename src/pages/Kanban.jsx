@@ -126,7 +126,7 @@ const Kanban = () => {
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
       >
-        <div className="flex flex-col gap-4 p-4 sm:flex-row">
+        <div className="flex flex-col gap-4 px-8 py-4 sm:flex-row">
           {Object.keys(columns).map((columnId) => (
             <DroppableColumn key={columnId} id={columnId} title={columnId}>
               <SortableContext
