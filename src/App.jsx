@@ -51,7 +51,7 @@ function App() {
         </div>
       </div>
 
-      <div className="hidden divide-y px-4 lg:block lg:w-1/3 xl:w-1/4 xxxl:w-1/6">
+      <div className="hidden min-w-fit divide-y px-4 lg:block lg:w-1/3 xl:w-1/4 xxxl:w-1/6">
         <UserProfile />
         <div className="py-4">
           <MyProjects />

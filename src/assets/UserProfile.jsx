@@ -43,13 +43,13 @@ function UserProfile() {
                 <p className="mb-4 text-2xl">Do you really want to log out?</p>
                 <div className="m-auto flex w-fit gap-4">
                   <button
-                    onClick={() => modalRef.current.close()} // 📍 모달 닫기
+                    onClick={() => modalRef.current.close()}
                     className="mx-auto bg-white px-5 py-2 outline-none"
                   >
                     Close
                   </button>
                   <button
-                    onClick={() => modalRef.current.close()} // 📍 모달 닫기
+                    onClick={() => modalRef.current.close()}
                     className="mx-auto bg-purple-400 px-5 py-2 text-white outline-none"
                   >
                     Confirm

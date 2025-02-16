@@ -8,7 +8,7 @@ const DroppableColumn = ({ id, children, title }) => {
   return (
     <div
       ref={setNodeRef}
-      className={`flex min-h-[150px] w-1/3 w-full flex-col rounded-md border p-4 ${backgroundColor}`}
+      className={`flex min-h-[150px] w-full flex-col rounded-md border p-4 ${backgroundColor}`}
     >
       <h2 className="mb-4 text-xl font-bold text-slate-800">
         {title.toUpperCase()}
