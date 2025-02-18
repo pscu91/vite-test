@@ -12,7 +12,7 @@ export default {
       },
       fontFamily: {},
       backgroundImage: {
-        home: "url('/vite-test/src/assets/img/BgImage.jpeg')",
+        home: "url('/vite-test/public/img/BgImage.jpeg')",
       },
     },
     screens: {
