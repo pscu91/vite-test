@@ -34,21 +34,24 @@ function App() {
         <div className="h-full">
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
-              <Route path="vite-test/" element={<Home />} />
-              <Route path="vite-test/home" element={<Home />} />
-              <Route path="vite-test/main" element={<Home />} />
-              <Route path="vite-test/index" element={<Home />} />
-              <Route path="vite-test/team" element={<Team />} />
-              <Route path="vite-test/project" element={<ProjectList />} />
-              <Route path="vite-test/reports" element={<ReportsList />} />
+              <Route path="/vite-test/" element={<Home />} />
+              <Route path="/vite-test/home" element={<Home />} />
+              <Route path="/vite-test/main" element={<Home />} />
+              <Route path="/vite-test/index" element={<Home />} />
+              <Route path="/vite-test/team" element={<Team />} />
+              <Route path="/vite-test/project" element={<ProjectList />} />
+              <Route path="/vite-test/reports" element={<ReportsList />} />
               <Route
-                path="vite-test/project/page/:id"
+                path="/vite-test/project/page/:id"
                 element={<ProjectPage />}
               />
-              <Route path="vite-test/contributors" element={<Contributors />} />
-              <Route path="vite-test/mypage" element={<MyPage />} />
-              <Route path="vite-test/kanban" element={<Kanban />} />
-              <Route path="vite-test/*" element={<NotFound />} />
+              <Route
+                path="/vite-test/contributors"
+                element={<Contributors />}
+              />
+              <Route path="/vite-test/mypage" element={<MyPage />} />
+              <Route path="/vite-test/kanban" element={<Kanban />} />
+              <Route path="/vite-test/*" element={<NotFound />} />
             </Routes>
           </AnimatePresence>
         </div>
