@@ -8,6 +8,7 @@ import {
 } from "@dnd-kit/sortable";
 import SortableItem from "../assets/SortableItem";
 import DroppableColumn from "../assets/DroppableColumn";
+import PageTitle from "../assets/PageTitle";
 
 const initialColumns = {
   todo: [
@@ -115,18 +116,16 @@ const Kanban = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="my-8 text-6xl font-extrabold tracking-tight">
-        <span className="select-none bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent drop-shadow-lg">
-          Kanban <br className="sm:hidden" />
-          Board
-        </span>
-      </div>
+      <PageTitle>
+        Kanban <br className="sm:hidden" />
+        Board
+      </PageTitle>
       <DndContext
         collisionDetection={closestCenter}
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
       >
-        <div className="flex flex-col gap-4 p-4 sm:flex-row">
+        <div className="flex flex-col gap-4 px-8 py-4 sm:flex-row">
           {Object.keys(columns).map((columnId) => (
             <DroppableColumn key={columnId} id={columnId} title={columnId}>
               <SortableContext

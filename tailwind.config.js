@@ -12,7 +12,7 @@ export default {
       },
       fontFamily: {},
       backgroundImage: {
-        home: "url('/src/assets/img/BgImage.jpg')",
+        home: "url('/src/assets/img/BgImage.jpeg')",
       },
     },
     screens: {
