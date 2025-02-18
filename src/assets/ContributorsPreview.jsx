@@ -21,7 +21,7 @@ function ContributorsPreview() {
           </div>
           <div className="mt-1 text-left text-sm font-medium">
             <Link
-              to="/vite-test/contributors"
+              to="/contributors"
               className="w-fit rounded-md px-2 py-1 text-slate-500 transition-colors hover:bg-purple-100"
             >
               + 198 others

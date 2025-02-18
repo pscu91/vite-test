@@ -25,7 +25,7 @@ function UserProfile() {
             {userData.position}
           </p>
           <div className="flex items-center gap-2">
-            <Link to="/vite-test/mypage">
+            <Link to="/mypage">
               <button className="rounded-full border-purple-200 bg-white px-4 py-1 text-purple-600 transition-colors hover:border-transparent hover:bg-purple-600 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-purple-500 active:bg-purple-700">
                 My Page
               </button>

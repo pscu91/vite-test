@@ -7,7 +7,7 @@ function MyProjectItem({ children }) {
   return (
     <>
       <Link
-        to={`/vite-test/project/page/${indexData.id}`}
+        to={`/project/page/${indexData.id}`}
         className="truncate rounded-md pl-1 hover:underline"
       >
         {children}
