@@ -35,6 +35,7 @@ function App() {
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
+              <Route path="/vite-test" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/main" element={<Home />} />
               <Route path="/index" element={<Home />} />
