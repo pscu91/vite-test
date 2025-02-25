@@ -31,6 +31,8 @@ const ROUTES = [
 ];
 
 function App() {
+  const location = useLocation();
+
   return (
     <div className="flex min-h-screen w-full">
       {/* 메인 컨텐츠 영역 */}
@@ -38,7 +40,7 @@ function App() {
         <Category />
         <div className="h-full min-h-[calc(100vh-2rem)]">
           <AnimatePresence mode="wait">
-            <Routes>
+            <Routes location={location} key={location.pathname}>
               {ROUTES.map(({ path, element }) =>
                 Array.isArray(path) ? (
                   path.map((p) => (
@@ -82,7 +84,7 @@ function App() {
       </div>
 
       {/* 사이드바 */}
-      <aside className="hidden w-80 min-w-fit border-l bg-white p-4 lg:block">
+      <aside className="hidden w-80 min-w-fit bg-white p-4 lg:block">
         <div className="flex flex-col gap-4">
           <UserProfile />
           <div className="border-t pt-4">
