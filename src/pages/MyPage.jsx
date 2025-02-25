@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { memberData } from "../data/MemberData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
@@ -7,12 +6,7 @@ const userData = memberData.find((member) => member.id === 1);
 
 function Contributors() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      className=""
-    >
+    <div>
       <form className="m-auto max-w-lg pt-20 text-left">
         <div className="mb-6 flex flex-col items-center gap-2">
           <p className="block text-xs font-bold uppercase tracking-wide text-slate-800">
@@ -121,7 +115,7 @@ function Contributors() {
           <button className="mt-8 bg-purple-600 px-12 text-white">Save</button>
         </div>
       </form>
-    </motion.div>
+    </div>
   );
 }
 

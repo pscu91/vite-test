@@ -1,6 +1,9 @@
+const isProd = process.env.NODE_ENV === "production";
+const baseUrl = isProd ? "/vite-test" : "";
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{js,jsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -12,7 +15,7 @@ export default {
       },
       fontFamily: {},
       backgroundImage: {
-        home: "url('/vite-test/BgImage.jpeg')",
+        home: `url('${baseUrl}/BgImage.jpeg')`,
       },
     },
     screens: {
@@ -28,4 +31,5 @@ export default {
   corePlugins: {
     preflight: true,
   },
+  plugins: [],
 };

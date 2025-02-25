@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { DndContext, closestCenter, DragOverlay } from "@dnd-kit/core";
 import {
@@ -11,153 +10,116 @@ import DroppableColumn from "../assets/DroppableColumn";
 import PageTitle from "../assets/PageTitle";
 
 const initialColumns = {
-  todo: [
-    { id: "task-1", content: "Task 1" },
-    { id: "task-2", content: "Task 2" },
-    { id: "task-3", content: "Task 3" },
-  ],
-  inprogress: [
-    { id: "task-4", content: "Task 4" },
-    { id: "task-5", content: "Task 5" },
-  ],
-  done: [{ id: "task-6", content: "Task 6" }],
+  todo: [{ id: "task-1", content: "Task 1" }],
+  inprogress: [{ id: "task-2", content: "Task 2" }],
+  done: [{ id: "task-3", content: "Task 3" }],
 };
 
 const Kanban = () => {
   const [columns, setColumns] = useState(initialColumns);
   const [activeId, setActiveId] = useState(null);
 
-  // 주어진 아이템 id가 속한 칼럼을 찾아 반환
   const findColumn = (id) => {
-    // 만약 id가 칼럼의 key라면 바로 반환
-    if (columns[id]) {
-      return id;
-    }
-    // 그렇지 않으면, 기존 방식으로 아이템을 검색
-    for (const columnId in columns) {
-      if (columns[columnId].find((item) => item.id === id)) {
-        return columnId;
-      }
-    }
-    return null;
-  };
-
-  const handleDragStart = (event) => {
-    setActiveId(event.active.id);
+    return Object.keys(columns).find((columnId) =>
+      columns[columnId].some((item) => item.id === id),
+    );
   };
 
   const handleDragEnd = (event) => {
     const { active, over } = event;
-    if (!over) {
-      setActiveId(null);
-      return;
-    }
-    if (active.id === over.id) {
-      setActiveId(null);
-      return;
-    }
+    if (!over) return;
 
-    const sourceColumnId = findColumn(active.id);
-    const destinationColumnId = findColumn(over.id);
-    if (!sourceColumnId || !destinationColumnId) {
-      setActiveId(null);
-      return;
-    }
+    const activeId = active.id;
+    const overId = over.id;
 
-    // 같은 칼럼 내 순서 변경
-    if (sourceColumnId === destinationColumnId) {
-      const items = columns[sourceColumnId];
-      const oldIndex = items.findIndex((item) => item.id === active.id);
-      const newIndex = items.findIndex((item) => item.id === over.id);
-      const newItems = arrayMove(items, oldIndex, newIndex);
+    const activeColumnId = findColumn(activeId);
+    const overColumnId = findColumn(overId) || overId;
+
+    if (activeColumnId !== overColumnId) {
+      // 다른 칼럼으로 이동
+      const movingItem = columns[activeColumnId].find(
+        (item) => item.id === activeId,
+      );
+
       setColumns({
         ...columns,
-        [sourceColumnId]: newItems,
+        [activeColumnId]: columns[activeColumnId].filter(
+          (item) => item.id !== activeId,
+        ),
+        [overColumnId]: [...columns[overColumnId], movingItem],
       });
     } else {
-      // 칼럼 간 이동
-      const sourceItems = columns[sourceColumnId];
-      const destinationItems = columns[destinationColumnId];
-      const movingItem = sourceItems.find((item) => item.id === active.id);
-      if (!movingItem) {
-        setActiveId(null);
-        return;
-      }
-      const newSourceItems = sourceItems.filter(
-        (item) => item.id !== active.id,
-      );
-      const newDestinationItems = [...destinationItems];
-      const destinationIndex = destinationItems.findIndex(
-        (item) => item.id === over.id,
-      );
-      if (destinationIndex === -1) {
-        newDestinationItems.push(movingItem);
-      } else {
-        newDestinationItems.splice(destinationIndex, 0, movingItem);
-      }
+      // 같은 칼럼 내에서 이동
+      const items = columns[activeColumnId];
+      const oldIndex = items.findIndex((item) => item.id === activeId);
+      const newIndex = items.findIndex((item) => item.id === overId);
+
       setColumns({
         ...columns,
-        [sourceColumnId]: newSourceItems,
-        [destinationColumnId]: newDestinationItems,
+        [activeColumnId]: arrayMove(items, oldIndex, newIndex),
       });
     }
+
     setActiveId(null);
   };
 
-  const activeItem = activeId
-    ? Object.values(columns)
-        .flat()
-        .find((item) => item.id === activeId)
-    : null;
+  const addTask = (columnId) => {
+    const newTask = {
+      id: `task-${Date.now()}`, // 유니크한 ID 생성
+      content: `New Task #${columns[columnId].length + 1}`,
+    };
+
+    setColumns({
+      ...columns,
+      [columnId]: [...columns[columnId], newTask],
+    });
+  };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-    >
-      <PageTitle>
-        Kanban <br className="sm:hidden" />
-        Board
-      </PageTitle>
+    <div>
+      <PageTitle>Kanban Board</PageTitle>
       <DndContext
         collisionDetection={closestCenter}
-        onDragStart={handleDragStart}
+        onDragStart={(event) => setActiveId(event.active.id)}
         onDragEnd={handleDragEnd}
       >
         <div className="flex flex-col gap-4 px-8 py-4 sm:flex-row">
-          {Object.keys(columns).map((columnId) => (
+          {Object.entries(columns).map(([columnId, items]) => (
             <DroppableColumn key={columnId} id={columnId} title={columnId}>
+              <button
+                onClick={() => addTask(columnId)}
+                className="mt-2 w-full rounded bg-purple-500 px-4 py-2 text-white transition-colors hover:bg-purple-600"
+              >
+                + New Task
+              </button>
               <SortableContext
-                items={columns[columnId].map((item) => item.id)}
+                items={items.map((item) => item.id)}
                 strategy={verticalListSortingStrategy}
               >
-                {columns[columnId].length === 0 ? (
-                  <div className="py-8 text-center text-slate-400">
-                    Drop items here
-                  </div>
-                ) : (
-                  columns[columnId].map((item) => (
-                    <SortableItem key={item.id} id={item.id}>
-                      <div className="mb-2 rounded bg-white p-4 font-semibold text-purple-600 shadow">
-                        {item.content}
-                      </div>
-                    </SortableItem>
-                  ))
-                )}
+                {items.map((item) => (
+                  <SortableItem key={item.id} id={item.id}>
+                    <div className="mb-2 rounded bg-white p-4 font-semibold text-purple-600 shadow">
+                      {item.content}
+                    </div>
+                  </SortableItem>
+                ))}
               </SortableContext>
             </DroppableColumn>
           ))}
         </div>
         <DragOverlay>
-          {activeItem ? (
+          {activeId && (
             <div className="mb-2 rounded bg-white p-4 font-semibold text-purple-600 opacity-80 shadow">
-              {activeItem.content}
+              {
+                columns[findColumn(activeId)].find(
+                  (item) => item.id === activeId,
+                )?.content
+              }
             </div>
-          ) : null}
+          )}
         </DragOverlay>
       </DndContext>
-    </motion.div>
+    </div>
   );
 };
 

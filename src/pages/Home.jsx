@@ -1,14 +1,8 @@
-import { motion } from "framer-motion";
 import PageTitle from "../assets/PageTitle";
 
 function Home() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      className="flex h-full bg-home bg-cover px-8 pb-40 lg:px-0"
-    >
+    <div className="flex h-full bg-home bg-cover px-8 pb-40 lg:px-0">
       <div className="m-auto flex h-fit w-fit transform flex-col items-center justify-center rounded-3xl bg-white/50 p-12 drop-shadow-xl backdrop-blur-lg transition-transform hover:skew-y-12">
         <div className="mb-8 text-6xl font-extrabold leading-none tracking-tight transition-all hover:blur-md">
           <PageTitle>Hello World</PageTitle>
@@ -26,7 +20,7 @@ function Home() {
           Click me
         </button>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

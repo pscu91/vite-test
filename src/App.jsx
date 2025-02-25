@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import "./App.css";
@@ -16,51 +16,85 @@ import Contributors from "./pages/Contributors";
 import MyPage from "./pages/MyPage";
 import Kanban from "./pages/Kanban";
 import NotFound from "./pages/NotFound";
+import { motion } from "framer-motion";
+
+const ROUTES = [
+  { path: ["/", "/vite-test", "/home", "/main", "/index"], element: <Home /> },
+  { path: "/team", element: <Team /> },
+  { path: "/project", element: <ProjectList /> },
+  { path: "/reports", element: <ReportsList /> },
+  { path: "/project/page/:id", element: <ProjectPage /> },
+  { path: "/contributors", element: <Contributors /> },
+  { path: "/mypage", element: <MyPage /> },
+  { path: "/kanban", element: <Kanban /> },
+  { path: "/*", element: <NotFound /> },
+];
 
 function App() {
-  // 서버 체크
-  // useEffect(() => {
-  //   fetch("http://localhost:8080/api")
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data));
-  // });
-
-  const location = useLocation();
-
   return (
-    <>
-      <div className="w-full lg:w-2/3 xl:w-3/4 xxxl:w-5/6">
+    <div className="flex min-h-screen w-full">
+      {/* 메인 컨텐츠 영역 */}
+      <div className="flex-1">
         <Category />
-        <div className="h-full">
+        <div className="h-full min-h-[calc(100vh-2rem)]">
           <AnimatePresence mode="wait">
-            <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<Home />} />
-              <Route path="/vite-test" element={<Home />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/main" element={<Home />} />
-              <Route path="/index" element={<Home />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/project" element={<ProjectList />} />
-              <Route path="/reports" element={<ReportsList />} />
-              <Route path="/project/page/:id" element={<ProjectPage />} />
-              <Route path="/contributors" element={<Contributors />} />
-              <Route path="/mypage" element={<MyPage />} />
-              <Route path="/kanban" element={<Kanban />} />
-              <Route path="/*" element={<NotFound />} />
+            <Routes>
+              {ROUTES.map(({ path, element }) =>
+                Array.isArray(path) ? (
+                  path.map((p) => (
+                    <Route
+                      key={p}
+                      path={p}
+                      element={
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.3 }}
+                          className="h-full"
+                        >
+                          {element}
+                        </motion.div>
+                      }
+                    />
+                  ))
+                ) : (
+                  <Route
+                    key={path}
+                    path={path}
+                    element={
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.3 }}
+                        className="h-full"
+                      >
+                        {element}
+                      </motion.div>
+                    }
+                  />
+                ),
+              )}
             </Routes>
           </AnimatePresence>
         </div>
       </div>
 
-      <div className="hidden min-w-fit divide-y px-4 lg:block lg:w-1/3 xl:w-1/4 xxxl:w-1/6">
-        <UserProfile />
-        <div className="py-4">
-          <MyProjects />
-          <ToDoList />
+      {/* 사이드바 */}
+      <aside className="hidden w-80 min-w-fit border-l bg-white p-4 lg:block">
+        <div className="flex flex-col gap-4">
+          <UserProfile />
+          <div className="border-t pt-4">
+            <MyProjects />
+            <ToDoList />
+          </div>
+          <div className="border-t pt-4">
+            <ContributorsPreview />
+          </div>
         </div>
-        <ContributorsPreview />
-      </div>
-    </>
+      </aside>
+    </div>
   );
 }
 

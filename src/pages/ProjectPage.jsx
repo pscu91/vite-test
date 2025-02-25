@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import { motion } from "framer-motion";
 import ReportCard from "../assets/ReportCard";
 import ProjectCard from "../assets/ProjectCard";
 import { memberData } from "../data/MemberData";
@@ -15,12 +14,7 @@ function ProjectPage() {
   );
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      className="h-full lg:bg-slate-50"
-    >
+    <div className="h-full lg:bg-slate-50">
       <div>
         <div
           className="bg-cover bg-center lg:mb-12"
@@ -106,7 +100,7 @@ function ProjectPage() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
