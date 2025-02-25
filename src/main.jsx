@@ -4,8 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 
-const isLocalhost = window.location.hostname === "localhost";
-const basename = isLocalhost ? "/" : "/vite-test/";
+// import.meta.env.MODE는 Vite의 빌트인 환경 변수
+const basename = import.meta.env.MODE === "production" ? "/vite-test" : "";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

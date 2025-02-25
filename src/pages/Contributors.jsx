@@ -1,15 +1,9 @@
-import { motion } from "framer-motion";
 import { memberData } from "../data/MemberData";
 import PageTitle from "../assets/PageTitle";
 
 function Contributors() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      className="flex h-full bg-slate-100 lg:pb-96"
-    >
+    <div className="flex h-full bg-slate-100 lg:pb-96">
       <div className="m-auto drop-shadow-lg">
         <PageTitle>Contributors</PageTitle>
         <div className="overflow-hidden rounded-xl">
@@ -32,7 +26,7 @@ function Contributors() {
           </table>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
