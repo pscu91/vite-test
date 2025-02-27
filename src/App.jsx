@@ -18,8 +18,6 @@ import Kanban from "./pages/Kanban";
 import NotFound from "./pages/NotFound";
 import { motion } from "framer-motion";
 import { fireStore } from "./Firebase";
-import { collection, getDocs, setDoc, doc } from "firebase/firestore";
-import { memberData } from "./data/MemberData";
 
 const ROUTES = [
   { path: ["/", "/vite-test", "/home", "/main", "/index"], element: <Home /> },
