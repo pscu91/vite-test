@@ -13,6 +13,17 @@ const firebaseConfig = {
 };
 
 // 환경 변수 확인을 위한 디버깅
+const missingVars = Object.entries(firebaseConfig)
+  .filter(([key, value]) => !value)
+  .map(([key]) => key);
+
+if (missingVars.length > 0) {
+  console.error("Missing Firebase configuration variables:", missingVars);
+  throw new Error(
+    `Firebase configuration is incomplete. Missing: ${missingVars.join(", ")}`,
+  );
+}
+
 console.log("Firebase Config:", {
   apiKey: firebaseConfig.apiKey,
   authDomain: firebaseConfig.authDomain,
