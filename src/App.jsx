@@ -36,38 +36,21 @@ function App() {
   const location = useLocation();
 
   return (
-    <AuthProvider>
-      <div className="flex min-h-screen w-full">
-        {/* 메인 컨텐츠 영역 */}
-        <div className="flex-1">
-          <Category />
-          <InitMember />
-          <div className="h-full min-h-[calc(100vh-2rem)]">
-            <AnimatePresence mode="wait">
-              <Routes location={location} key={location.pathname}>
-                {ROUTES.map(({ path, element }) =>
-                  Array.isArray(path) ? (
-                    path.map((p) => (
-                      <Route
-                        key={p}
-                        path={p}
-                        element={
-                          <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.3 }}
-                            className="h-full"
-                          >
-                            {element}
-                          </motion.div>
-                        }
-                      />
-                    ))
-                  ) : (
+    // <AuthProvider>
+    <div className="flex min-h-screen w-full">
+      {/* 메인 컨텐츠 영역 */}
+      <div className="flex-1">
+        <Category />
+        <InitMember />
+        <div className="h-full min-h-[calc(100vh-2rem)]">
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              {ROUTES.map(({ path, element }) =>
+                Array.isArray(path) ? (
+                  path.map((p) => (
                     <Route
-                      key={path}
-                      path={path}
+                      key={p}
+                      path={p}
                       element={
                         <motion.div
                           initial={{ opacity: 0, y: 20 }}
@@ -80,28 +63,45 @@ function App() {
                         </motion.div>
                       }
                     />
-                  ),
-                )}
-              </Routes>
-            </AnimatePresence>
+                  ))
+                ) : (
+                  <Route
+                    key={path}
+                    path={path}
+                    element={
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.3 }}
+                        className="h-full"
+                      >
+                        {element}
+                      </motion.div>
+                    }
+                  />
+                ),
+              )}
+            </Routes>
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* 사이드바 */}
+      <aside className="hidden w-80 min-w-fit bg-white p-4 lg:block">
+        <div className="flex flex-col gap-4">
+          <UserProfile />
+          <div className="border-t pt-4">
+            <MyProjects />
+            <ToDoList />
+          </div>
+          <div className="border-t pt-4">
+            <ContributorsPreview />
           </div>
         </div>
-
-        {/* 사이드바 */}
-        <aside className="hidden w-80 min-w-fit bg-white p-4 lg:block">
-          <div className="flex flex-col gap-4">
-            <UserProfile />
-            <div className="border-t pt-4">
-              <MyProjects />
-              <ToDoList />
-            </div>
-            <div className="border-t pt-4">
-              <ContributorsPreview />
-            </div>
-          </div>
-        </aside>
-      </div>
-    </AuthProvider>
+      </aside>
+    </div>
+    // </AuthProvider>
   );
 }
 
