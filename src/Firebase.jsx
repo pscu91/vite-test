@@ -8,25 +8,13 @@ import {
 } from "firebase/firestore";
 
 // Firebase 설정
-console.log("=== Firebase 초기화 전 환경 변수 확인 ===");
-console.log("VITE_API_KEY:", import.meta.env.VITE_API_KEY);
-console.log("VITE_AUTH_DOMAIN:", import.meta.env.VITE_AUTH_DOMAIN);
-console.log("VITE_PROJECT_ID:", import.meta.env.VITE_PROJECT_ID);
-console.log("전체 import.meta.env:", import.meta.env);
+console.log("=== Firebase 초기화 전 설정 확인 ===");
+console.log("Firebase 설정 값:", __FIREBASE_CONFIG__);
 
-const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_APP_ID,
-  measurementId: import.meta.env.VITE_MEASUREMENT_ID,
-};
+const firebaseConfig = __FIREBASE_CONFIG__;
 
 // Firebase 설정 값 확인
 console.log("=== Firebase Config 확인 ===");
-console.log("전체 설정:", firebaseConfig);
 console.log("API Key 길이:", firebaseConfig.apiKey?.length || 0);
 console.log("Project ID:", firebaseConfig.projectId);
 
