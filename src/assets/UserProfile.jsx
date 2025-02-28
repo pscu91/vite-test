@@ -1,13 +1,26 @@
-import { memberData } from "../data/MemberData";
+import UseMembers from "../hooks/UseMembers";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
-const userData = memberData.find((member) => member.id === 1);
-
 function UserProfile() {
   const modalRef = useRef();
+  const { members, loading, error } = UseMembers();
+
+  if (loading) {
+    return <div className="mt-8 text-center">로딩 중...</div>;
+  }
+
+  if (error) {
+    return <div className="mt-8 text-center text-red-500">에러: {error}</div>;
+  }
+
+  const userData = members.find((member) => member.id === "1");
+
+  if (!userData) {
+    return <div className="mt-8 text-center">사용자를 찾을 수 없습니다.</div>;
+  }
 
   return (
     <>
