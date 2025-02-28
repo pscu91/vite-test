@@ -137,8 +137,8 @@ function MyPage() {
         email: formData.email,
         description: formData.description,
         // 기존 데이터 유지
-        snsIcons: userData.snsIcons.map((icon) => icon.iconName).join(","),
-        bulletList: userData.bulletList.join(","),
+        sns: userData.sns || [], // sns 배열 그대로 유지
+        bulletList: userData.bulletList || [],
         image: userData.image,
       };
 

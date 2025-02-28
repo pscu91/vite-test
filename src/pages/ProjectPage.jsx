@@ -4,6 +4,7 @@ import ProjectCard from "../assets/ProjectCard";
 import { projectData } from "../data/ProjectData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import UseMembers from "../hooks/UseMembers";
+import { snsIcons } from "../data/MemberData";
 
 function ProjectPage() {
   const { id } = useParams();
@@ -95,14 +96,14 @@ function ProjectPage() {
                 {authorData.position}
               </p>
               <div className="flex justify-center gap-2">
-                {authorData.snsIcons &&
-                  authorData.snsIcons.map(({ iconName, icon }) => (
+                {authorData.sns &&
+                  authorData.sns.map((platform) => (
                     <a
-                      key={iconName}
+                      key={platform}
                       href="#"
                       className="text-xl text-slate-600 transition-colors hover:text-purple-600"
                     >
-                      <FontAwesomeIcon icon={icon} />
+                      <FontAwesomeIcon icon={snsIcons[platform]} />
                     </a>
                   ))}
               </div>
