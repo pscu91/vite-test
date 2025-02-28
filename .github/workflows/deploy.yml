@@ -11,6 +11,16 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: github-pages
+    env:
+      VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
+      VITE_AUTH_DOMAIN: ${{ secrets.VITE_AUTH_DOMAIN }}
+      VITE_PROJECT_ID: ${{ secrets.VITE_PROJECT_ID }}
+      VITE_STORAGE_BUCKET: ${{ secrets.VITE_STORAGE_BUCKET }}
+      VITE_MESSAGING_SENDER_ID: ${{ secrets.VITE_MESSAGING_SENDER_ID }}
+      VITE_APP_ID: ${{ secrets.VITE_APP_ID }}
+      VITE_MEASUREMENT_ID: ${{ secrets.VITE_MEASUREMENT_ID }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -29,10 +39,6 @@ jobs:
           echo "현재 작업 디렉토리: $(pwd)"
           echo "Node 버전: $(node -v)"
           echo "NPM 버전: $(npm -v)"
-          echo "환경 변수 상태 확인:"
-          env | grep VITE_
-          echo "=== Vite 환경 설정 확인 ==="
-          echo "MODE: $NODE_ENV"
           echo "=== 환경 변수 존재 여부 확인 ==="
           for var in VITE_API_KEY VITE_AUTH_DOMAIN VITE_PROJECT_ID VITE_STORAGE_BUCKET VITE_MESSAGING_SENDER_ID VITE_APP_ID VITE_MEASUREMENT_ID
           do
@@ -43,27 +49,21 @@ jobs:
             fi
           done
           echo "=== 디버깅 종료 ==="
-        env:
-          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
-          VITE_AUTH_DOMAIN: ${{ secrets.VITE_AUTH_DOMAIN }}
-          VITE_PROJECT_ID: ${{ secrets.VITE_PROJECT_ID }}
-          VITE_STORAGE_BUCKET: ${{ secrets.VITE_STORAGE_BUCKET }}
-          VITE_MESSAGING_SENDER_ID: ${{ secrets.VITE_MESSAGING_SENDER_ID }}
-          VITE_APP_ID: ${{ secrets.VITE_APP_ID }}
-          VITE_MEASUREMENT_ID: ${{ secrets.VITE_MEASUREMENT_ID }}
+
+      - name: Create env file
+        run: |
+          echo "VITE_API_KEY=${{ secrets.VITE_API_KEY }}" >> .env
+          echo "VITE_AUTH_DOMAIN=${{ secrets.VITE_AUTH_DOMAIN }}" >> .env
+          echo "VITE_PROJECT_ID=${{ secrets.VITE_PROJECT_ID }}" >> .env
+          echo "VITE_STORAGE_BUCKET=${{ secrets.VITE_STORAGE_BUCKET }}" >> .env
+          echo "VITE_MESSAGING_SENDER_ID=${{ secrets.VITE_MESSAGING_SENDER_ID }}" >> .env
+          echo "VITE_APP_ID=${{ secrets.VITE_APP_ID }}" >> .env
+          echo "VITE_MEASUREMENT_ID=${{ secrets.VITE_MEASUREMENT_ID }}" >> .env
 
       - name: Build
-        env:
-          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
-          VITE_AUTH_DOMAIN: ${{ secrets.VITE_AUTH_DOMAIN }}
-          VITE_PROJECT_ID: ${{ secrets.VITE_PROJECT_ID }}
-          VITE_STORAGE_BUCKET: ${{ secrets.VITE_STORAGE_BUCKET }}
-          VITE_MESSAGING_SENDER_ID: ${{ secrets.VITE_MESSAGING_SENDER_ID }}
-          VITE_APP_ID: ${{ secrets.VITE_APP_ID }}
-          VITE_MEASUREMENT_ID: ${{ secrets.VITE_MEASUREMENT_ID }}
         run: |
           echo "=== 빌드 환경 변수 확인 ==="
-          env | grep VITE_
+          cat .env
           echo "=== 빌드 시작 ==="
           npm run build
 
