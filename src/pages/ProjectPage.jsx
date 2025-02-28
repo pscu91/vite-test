@@ -1,17 +1,33 @@
 import { useParams } from "react-router-dom";
 import ReportCard from "../assets/ReportCard";
 import ProjectCard from "../assets/ProjectCard";
-import { memberData } from "../data/MemberData";
 import { projectData } from "../data/ProjectData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import UseMembers from "../hooks/UseMembers";
 
 function ProjectPage() {
   const { id } = useParams();
   const indexId = Number(id);
   const indexData = projectData.find((item) => item.id === indexId);
-  const authorData = memberData.find(
-    (member) => member.id === indexData.author,
+  const { members, loading, error } = UseMembers();
+
+  if (loading) {
+    return <div className="mt-8 text-center">로딩 중...</div>;
+  }
+
+  if (error) {
+    return <div className="mt-8 text-center text-red-500">에러: {error}</div>;
+  }
+
+  const authorData = members.find(
+    (member) => member.id === indexData.author.toString(),
   );
+
+  if (!authorData) {
+    return (
+      <div className="mt-8 text-center">작성자 정보를 찾을 수 없습니다.</div>
+    );
+  }
 
   return (
     <div className="h-full lg:bg-slate-50">
@@ -80,17 +96,20 @@ function ProjectPage() {
               </p>
               <div className="flex justify-center gap-2">
                 {authorData.snsIcons &&
-                  authorData.snsIcons.map((icon, index) => (
+                  authorData.snsIcons.map(({ iconName, icon }) => (
                     <a
+                      key={iconName}
                       href="#"
                       className="text-xl text-slate-600 transition-colors hover:text-purple-600"
                     >
-                      <FontAwesomeIcon key={index} icon={icon} />
+                      <FontAwesomeIcon icon={icon} />
                     </a>
                   ))}
               </div>
             </div>
-            <button className="bg-purple-600 text-white">Subscription</button>
+            <button className="rounded bg-purple-600 px-4 py-2 text-white hover:bg-purple-700">
+              Subscription
+            </button>
           </div>
 
           <div className="py-4 xxl:flex">

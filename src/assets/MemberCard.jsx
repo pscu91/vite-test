@@ -16,12 +16,13 @@ function MemberCard({ member }) {
         </p>
         <div className="flex justify-center gap-2">
           {member.snsIcons &&
-            member.snsIcons.map((icon, index) => (
+            member.snsIcons.map(({ iconName, icon }) => (
               <a
+                key={iconName}
                 href="#"
                 className="text-xl text-slate-600 transition-colors hover:text-purple-600"
               >
-                <FontAwesomeIcon key={index} icon={icon} />
+                <FontAwesomeIcon icon={icon} />
               </a>
             ))}
         </div>

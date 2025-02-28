@@ -38,9 +38,9 @@
 .tooltip {
   position: absolute;
   background: rgba(255, 255, 255, 1);
-  webkit-transform: translateX(-25%);
-  -ms-transform: translateX(-25%);
-  transform: translateX(-25%);
+  webkit-transform: translateX(-25%) translateY(-250%);
+  -ms-transform: translateX(-25%) translateY(-250%);
+  transform: translateX(-25%) translateY(-250%);
   padding: 4px;
   border-radius: 5px;
   text-align: center;

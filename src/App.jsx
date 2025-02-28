@@ -17,9 +17,7 @@ import MyPage from "./pages/MyPage";
 import Kanban from "./pages/Kanban";
 import NotFound from "./pages/NotFound";
 import { motion } from "framer-motion";
-import { fireStore } from "./Firebase";
-import { collection, getDocs, setDoc, doc } from "firebase/firestore";
-import { memberData } from "./data/MemberData";
+import InitMember from "./data/InitMember";
 
 const ROUTES = [
   { path: ["/", "/vite-test", "/home", "/main", "/index"], element: <Home /> },
@@ -34,10 +32,6 @@ const ROUTES = [
 ];
 
 function App() {
-  useEffect(() => {
-    console.log(fireStore);
-  });
-
   const location = useLocation();
 
   return (
@@ -45,6 +39,7 @@ function App() {
       {/* 메인 컨텐츠 영역 */}
       <div className="flex-1">
         <Category />
+        <InitMember />
         <div className="h-full min-h-[calc(100vh-2rem)]">
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
