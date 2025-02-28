@@ -10,43 +10,49 @@ const base =
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // 환경 변수 로드 (빈 문자열은 VITE_ 접두사가 없는 변수도 로드)
+  // 환경 변수 로드
   const env = loadEnv(mode, process.cwd(), "");
 
-  console.log("=== Vite 빌드 환경 변수 확인 ===");
+  // 환경 변수 디버깅
+  console.log("=== Vite 빌드 시 환경 변수 확인 ===");
   console.log("현재 모드:", mode);
-  console.log("환경 변수 목록:");
-  Object.keys(env).forEach((key) => {
-    if (key.startsWith("VITE_")) {
-      const value = env[key];
-      console.log(
-        `${key}: ${value ? `설정됨 (길이: ${value.length})` : "설정되지 않음"}`,
-      );
-    }
-  });
+  console.log(
+    "process.env.VITE_API_KEY 존재 여부:",
+    !!process.env.VITE_API_KEY,
+  );
+  console.log("env.VITE_API_KEY 존재 여부:", !!env.VITE_API_KEY);
+
+  // 환경 변수 값 설정
+  const envValues = {
+    VITE_API_KEY: process.env.VITE_API_KEY || env.VITE_API_KEY || "",
+    VITE_AUTH_DOMAIN:
+      process.env.VITE_AUTH_DOMAIN || env.VITE_AUTH_DOMAIN || "",
+    VITE_PROJECT_ID: process.env.VITE_PROJECT_ID || env.VITE_PROJECT_ID || "",
+    VITE_STORAGE_BUCKET:
+      process.env.VITE_STORAGE_BUCKET || env.VITE_STORAGE_BUCKET || "",
+    VITE_MESSAGING_SENDER_ID:
+      process.env.VITE_MESSAGING_SENDER_ID ||
+      env.VITE_MESSAGING_SENDER_ID ||
+      "",
+    VITE_APP_ID: process.env.VITE_APP_ID || env.VITE_APP_ID || "",
+    VITE_MEASUREMENT_ID:
+      process.env.VITE_MEASUREMENT_ID || env.VITE_MEASUREMENT_ID || "",
+  };
 
   return {
     plugins: [react()],
     base: mode === "production" ? "/vite-test/" : "/",
     define: {
-      // 환경 변수를 클라이언트에서 사용할 수 있도록 정의
-      "import.meta.env.VITE_API_KEY": JSON.stringify(env.VITE_API_KEY || ""),
-      "import.meta.env.VITE_AUTH_DOMAIN": JSON.stringify(
-        env.VITE_AUTH_DOMAIN || "",
-      ),
-      "import.meta.env.VITE_PROJECT_ID": JSON.stringify(
-        env.VITE_PROJECT_ID || "",
-      ),
-      "import.meta.env.VITE_STORAGE_BUCKET": JSON.stringify(
-        env.VITE_STORAGE_BUCKET || "",
-      ),
-      "import.meta.env.VITE_MESSAGING_SENDER_ID": JSON.stringify(
-        env.VITE_MESSAGING_SENDER_ID || "",
-      ),
-      "import.meta.env.VITE_APP_ID": JSON.stringify(env.VITE_APP_ID || ""),
-      "import.meta.env.VITE_MEASUREMENT_ID": JSON.stringify(
-        env.VITE_MEASUREMENT_ID || "",
-      ),
+      // 환경 변수를 전역으로 정의
+      __FIREBASE_CONFIG__: JSON.stringify({
+        apiKey: envValues.VITE_API_KEY,
+        authDomain: envValues.VITE_AUTH_DOMAIN,
+        projectId: envValues.VITE_PROJECT_ID,
+        storageBucket: envValues.VITE_STORAGE_BUCKET,
+        messagingSenderId: envValues.VITE_MESSAGING_SENDER_ID,
+        appId: envValues.VITE_APP_ID,
+        measurementId: envValues.VITE_MEASUREMENT_ID,
+      }),
     },
   };
 });
