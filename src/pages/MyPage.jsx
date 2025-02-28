@@ -1,9 +1,15 @@
 import UseMembers from "../hooks/UseMembers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { doc, updateDoc } from "firebase/firestore";
-import { fireStore } from "../Firebase";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
+import { fireStore, storage } from "../Firebase";
 
 const FormField = ({
   label,
@@ -79,6 +85,11 @@ function MyPage() {
     loading: false,
     error: null,
   });
+  const fileInputRef = useRef(null);
+  const [imageUploadStatus, setImageUploadStatus] = useState({
+    loading: false,
+    error: null,
+  });
 
   const positions = [
     "CEO",
@@ -151,6 +162,73 @@ function MyPage() {
     }
   };
 
+  const handleImageClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // 파일 크기 체크 (1MB)
+    if (file.size > 1024 * 1024) {
+      alert("파일 크기는 1MB를 초과할 수 없습니다.");
+      return;
+    }
+
+    // 이미지 파일 타입 체크
+    const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+    if (!allowedTypes.includes(file.type)) {
+      alert(
+        "허용된 이미지 형식이 아닙니다.\n(.jpg, .jpeg, .png, .webp 파일만 업로드 가능)",
+      );
+      return;
+    }
+
+    setImageUploadStatus({ loading: true, error: null });
+
+    try {
+      // 기존 이미지 URL에서 파일 경로 추출
+      const oldImageUrl = userData.image;
+      if (
+        oldImageUrl &&
+        oldImageUrl.includes("firebasestorage.googleapis.com")
+      ) {
+        try {
+          // Storage의 파일 경로 추출
+          const oldImagePath = oldImageUrl.split("/o/")[1].split("?")[0];
+          const decodedPath = decodeURIComponent(oldImagePath);
+          const oldImageRef = ref(storage, decodedPath);
+
+          // 기존 이미지 삭제
+          await deleteObject(oldImageRef);
+          console.log("기존 이미지가 삭제되었습니다.");
+        } catch (deleteErr) {
+          console.error("기존 이미지 삭제 중 오류 발생:", deleteErr);
+          // 기존 이미지 삭제 실패해도 새 이미지 업로드는 계속 진행
+        }
+      }
+
+      // 새 이미지 업로드
+      const storageRef = ref(storage, `img/${file.name}`);
+      await uploadBytes(storageRef, file);
+      const downloadURL = await getDownloadURL(storageRef);
+
+      // Firestore 문서 업데이트
+      const memberRef = doc(fireStore, "members", "1");
+      await updateDoc(memberRef, {
+        image: downloadURL,
+      });
+
+      // 성공 메시지
+      alert("프로필 이미지가 성공적으로 업데이트되었습니다.");
+      window.location.reload(); // 페이지 새로고침
+    } catch (err) {
+      console.error("이미지 업로드 중 오류 발생:", err);
+      setImageUploadStatus({ loading: false, error: err.message });
+    }
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit} className="m-auto max-w-lg pt-20 text-left">
@@ -163,9 +241,24 @@ function MyPage() {
             src={userData.image}
             alt={userData.name}
           />
-          <button type="button" className="text-sm">
-            Change
+          <input
+            type="file"
+            ref={fileInputRef}
+            className="hidden"
+            accept="image/*"
+            onChange={handleImageUpload}
+          />
+          <button
+            type="button"
+            onClick={handleImageClick}
+            disabled={imageUploadStatus.loading}
+            className="text-sm text-purple-600 hover:text-purple-700"
+          >
+            {imageUploadStatus.loading ? "업로드 중..." : "Change"}
           </button>
+          {imageUploadStatus.error && (
+            <p className="text-sm text-red-500">{imageUploadStatus.error}</p>
+          )}
         </div>
 
         <div className="mb-6 flex flex-wrap">
