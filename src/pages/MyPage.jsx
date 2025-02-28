@@ -141,17 +141,56 @@ function MyPage() {
     try {
       const memberRef = doc(fireStore, "members", "1");
 
-      // Firestore에 맞게 데이터 구조 변환
+      // 기본 데이터 구조 설정
       const updateData = {
         name: formData.name,
         position: formData.position,
         email: formData.email,
         description: formData.description,
-        // Firebase에는 파일명만 저장
-        image: userData.image.split("/").pop(),
-        snsIcons: userData.snsIcons || [],
-        bulletList: userData.bulletList || [],
+        image: userData.image,
       };
+
+      // snsIcons 데이터 처리
+      if (userData.snsIcons) {
+        // 문자열인 경우 빈 배열로 초기화
+        if (typeof userData.snsIcons === "string") {
+          updateData.snsIcons = [];
+        }
+        // 배열인 경우 각 항목 처리
+        else if (Array.isArray(userData.snsIcons)) {
+          updateData.snsIcons = userData.snsIcons.map((icon) => {
+            // icon이 객체가 아닌 경우 기본 구조 제공
+            if (typeof icon !== "object" || icon === null) {
+              return { iconName: "", url: "" };
+            }
+            return {
+              iconName: icon.iconName || "",
+              url: icon.url || "",
+            };
+          });
+        }
+        // 그 외의 경우 빈 배열로 설정
+        else {
+          updateData.snsIcons = [];
+        }
+      } else {
+        updateData.snsIcons = [];
+      }
+
+      // bulletList 데이터 처리
+      if (userData.bulletList) {
+        if (typeof userData.bulletList === "string") {
+          updateData.bulletList = [userData.bulletList];
+        } else if (Array.isArray(userData.bulletList)) {
+          updateData.bulletList = userData.bulletList.map((item) =>
+            item ? String(item) : "",
+          );
+        } else {
+          updateData.bulletList = [];
+        }
+      } else {
+        updateData.bulletList = [];
+      }
 
       await updateDoc(memberRef, updateData);
       setUpdateStatus({ loading: false, error: null });
