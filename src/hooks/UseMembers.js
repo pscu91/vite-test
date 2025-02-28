@@ -29,7 +29,7 @@ const UseMembers = () => {
             ...data,
             id: doc.id,
             // 이미지 경로 처리
-            image: `/memberimg/${data.image.split("/").pop()}`,
+            image: `./memberimg/${data.image.split("/").pop()}`,
             // 문자열로 저장된 데이터를 다시 배열로 변환하고 FontAwesome 아이콘 매핑
             snsIcons: data.snsIcons.split(",").map((iconName) => ({
               iconName,
