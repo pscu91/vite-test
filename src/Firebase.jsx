@@ -9,13 +9,13 @@ import {
 
 // Firebase 설정
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_APP_ID,
-  measurementId: import.meta.env.VITE_MEASUREMENT_ID,
+  apiKey: __VITE_API_KEY__,
+  authDomain: __VITE_AUTH_DOMAIN__,
+  projectId: __VITE_PROJECT_ID__,
+  storageBucket: __VITE_STORAGE_BUCKET__,
+  messagingSenderId: __VITE_MESSAGING_SENDER_ID__,
+  appId: __VITE_APP_ID__,
+  measurementId: __VITE_MEASUREMENT_ID__,
 };
 
 // 환경 변수 확인을 위한 디버깅

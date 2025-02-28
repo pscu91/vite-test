@@ -17,19 +17,13 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     base: mode === "production" ? "/vite-test/" : "/",
     define: {
-      "import.meta.env.VITE_API_KEY": JSON.stringify(env.VITE_API_KEY),
-      "import.meta.env.VITE_AUTH_DOMAIN": JSON.stringify(env.VITE_AUTH_DOMAIN),
-      "import.meta.env.VITE_PROJECT_ID": JSON.stringify(env.VITE_PROJECT_ID),
-      "import.meta.env.VITE_STORAGE_BUCKET": JSON.stringify(
-        env.VITE_STORAGE_BUCKET,
-      ),
-      "import.meta.env.VITE_MESSAGING_SENDER_ID": JSON.stringify(
-        env.VITE_MESSAGING_SENDER_ID,
-      ),
-      "import.meta.env.VITE_APP_ID": JSON.stringify(env.VITE_APP_ID),
-      "import.meta.env.VITE_MEASUREMENT_ID": JSON.stringify(
-        env.VITE_MEASUREMENT_ID,
-      ),
+      __VITE_API_KEY__: `"${env.VITE_API_KEY}"`,
+      __VITE_AUTH_DOMAIN__: `"${env.VITE_AUTH_DOMAIN}"`,
+      __VITE_PROJECT_ID__: `"${env.VITE_PROJECT_ID}"`,
+      __VITE_STORAGE_BUCKET__: `"${env.VITE_STORAGE_BUCKET}"`,
+      __VITE_MESSAGING_SENDER_ID__: `"${env.VITE_MESSAGING_SENDER_ID}"`,
+      __VITE_APP_ID__: `"${env.VITE_APP_ID}"`,
+      __VITE_MEASUREMENT_ID__: `"${env.VITE_MEASUREMENT_ID}"`,
     },
   };
 });
