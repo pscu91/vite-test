@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 import {
   initializeFirestore,
   persistentLocalCache,
@@ -26,5 +27,6 @@ const fireStore = initializeFirestore(app, {
 });
 
 const auth = getAuth(app);
+const storage = getStorage(app);
 
-export { fireStore, auth };
+export { fireStore, auth, storage };
