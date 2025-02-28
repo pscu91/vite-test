@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 // Firebase 설정
 const firebaseConfig = {
@@ -39,5 +40,6 @@ const app = initializeApp(firebaseConfig);
 
 // Firestore 인스턴스 생성
 const fireStore = getFirestore(app);
+const auth = getAuth(app);
 
-export { fireStore };
+export { fireStore, auth };
