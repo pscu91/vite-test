@@ -31,8 +31,8 @@ const UseMembers = () => {
           return {
             ...data,
             id: doc.id,
-            // 이미지 경로 처리
-            image: `${BASE_PATH}/memberimg/${data.image.split("/").pop()}`,
+            // Firebase Storage URL을 그대로 사용
+            image: data.image,
             // 문자열로 저장된 데이터를 다시 배열로 변환하고 FontAwesome 아이콘 매핑
             snsIcons: data.snsIcons.split(",").map((iconName) => ({
               iconName,
