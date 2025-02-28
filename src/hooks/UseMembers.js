@@ -1,18 +1,7 @@
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { fireStore } from "../Firebase";
-import {
-  faGithub,
-  faInstagram,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
-
-// SNS 아이콘 매핑 객체
-const iconMapping = {
-  github: faGithub,
-  instagram: faInstagram,
-  linkedin: faLinkedin,
-};
+import { snsIcons } from "../data/SocialIcons";
 
 // 배포 환경에 따른 기본 경로 설정
 const BASE_PATH = import.meta.env.MODE === "production" ? "/vite-test" : "";
@@ -31,14 +20,23 @@ const UseMembers = () => {
           return {
             ...data,
             id: doc.id,
-            // Firebase Storage URL을 그대로 사용
             image: data.image,
-            // 문자열로 저장된 데이터를 다시 배열로 변환하고 FontAwesome 아이콘 매핑
-            snsIcons: data.snsIcons.split(",").map((iconName) => ({
-              iconName,
-              icon: iconMapping[iconName.toLowerCase()] || iconMapping.github,
-            })),
-            bulletList: data.bulletList.split(","),
+            snsIcons: Array.isArray(data.snsIcons)
+              ? data.snsIcons.map((icon) => ({
+                  iconName: icon.iconName || "",
+                  icon: snsIcons[icon.iconName || ""] || snsIcons.github,
+                }))
+              : typeof data.snsIcons === "string" && data.snsIcons
+                ? data.snsIcons.split(",").map((iconName) => ({
+                    iconName: iconName.trim(),
+                    icon: snsIcons[iconName.trim()] || snsIcons.github,
+                  }))
+                : [],
+            bulletList: Array.isArray(data.bulletList)
+              ? data.bulletList
+              : typeof data.bulletList === "string" && data.bulletList
+                ? data.bulletList.split(",").map((item) => item.trim())
+                : [],
           };
         });
         setMembers(membersData);

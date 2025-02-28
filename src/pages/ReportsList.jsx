@@ -7,7 +7,7 @@ function ReportsList() {
     <div>
       <PageTitle>Research Reports</PageTitle>
       <SearchBar />
-      <div className="flex flex-wrap p-4 xl:px-24 xxxl:px-48">
+      <div className="flex flex-wrap xl:px-24 xxxl:px-48">
         <ReportCard />
         <ReportCard />
         <ReportCard />
