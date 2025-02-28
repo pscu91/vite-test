@@ -1,10 +1,7 @@
-import { memberData } from "./MemberData";
 import ProjectImage1 from "../assets/img/ProjectImage1.jpeg";
 import ProjectImage2 from "../assets/img/ProjectImage2.jpeg";
 import ProjectImage3 from "../assets/img/ProjectImage3.jpeg";
 import ProjectImage4 from "../assets/img/ProjectImage4.jpeg";
-
-const getMemberName = (id) => memberData.find((member) => member.id === id)?.id;
 
 export const projectData = [
   {
@@ -15,7 +12,7 @@ export const projectData = [
     category: ["Platform Service"],
     platform: "WEB",
     createDate: "2025-01-01",
-    author: getMemberName(1),
+    author: "1",
     headerContents: "consectetur nunc aliquam",
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis luctus lacus, maximus consectetur nunc aliquam congue. Morbi interdum massa at sollicitudin lobortis. Morbi ultrices nisi et nulla aliquam blandit.",
@@ -28,7 +25,7 @@ export const projectData = [
     category: ["consectetur"],
     platform: "iOS",
     createDate: "2025-01-01",
-    author: getMemberName(5),
+    author: "5",
     headerContents: "consectetur nunc aliquam",
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis luctus lacus, maximus consectetur nunc aliquam congue. Morbi interdum massa at sollicitudin lobortis. Morbi ultrices nisi et nulla aliquam blandit.",
@@ -41,7 +38,7 @@ export const projectData = [
     category: ["consectetur"],
     platform: "AndroidOS",
     createDate: "2025-01-01",
-    author: getMemberName(4),
+    author: "4",
     headerContents: "consectetur nunc aliquam",
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis luctus lacus, maximus consectetur nunc aliquam congue. Morbi interdum massa at sollicitudin lobortis. Morbi ultrices nisi et nulla aliquam blandit.",
@@ -54,7 +51,7 @@ export const projectData = [
     category: ["consectetur"],
     platform: "iOS",
     createDate: "2025-01-01",
-    author: getMemberName(2),
+    author: "2",
     headerContents: "consectetur nunc aliquam",
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis luctus lacus, maximus consectetur nunc aliquam congue. Morbi interdum massa at sollicitudin lobortis. Morbi ultrices nisi et nulla aliquam blandit.",

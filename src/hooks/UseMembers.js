@@ -22,14 +22,14 @@ const UseMembers = () => {
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        const membersRef = collection(fireStore, "members");
-        const snapshot = await getDocs(membersRef);
-
-        const membersList = snapshot.docs.map((doc) => {
+        const querySnapshot = await getDocs(collection(fireStore, "members"));
+        const membersData = querySnapshot.docs.map((doc) => {
           const data = doc.data();
           return {
             ...data,
             id: doc.id,
+            // 이미지 경로 처리
+            image: `/memberimg/${data.image.split("/").pop()}`,
             // 문자열로 저장된 데이터를 다시 배열로 변환하고 FontAwesome 아이콘 매핑
             snsIcons: data.snsIcons.split(",").map((iconName) => ({
               iconName,
@@ -38,8 +38,7 @@ const UseMembers = () => {
             bulletList: data.bulletList.split(","),
           };
         });
-
-        setMembers(membersList);
+        setMembers(membersData);
         setLoading(false);
       } catch (err) {
         console.error("멤버 데이터 로딩 중 오류 발생:", err);

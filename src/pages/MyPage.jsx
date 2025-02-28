@@ -136,10 +136,10 @@ function MyPage() {
         position: formData.position,
         email: formData.email,
         description: formData.description,
-        // 기존 데이터 유지
-        sns: userData.sns || [], // sns 배열 그대로 유지
+        // Firebase에는 파일명만 저장
+        image: userData.image.split("/").pop(),
+        snsIcons: userData.snsIcons || [],
         bulletList: userData.bulletList || [],
-        image: userData.image,
       };
 
       await updateDoc(memberRef, updateData);
