@@ -54,5 +54,13 @@ export default defineConfig(({ mode }) => {
         measurementId: envValues.VITE_MEASUREMENT_ID,
       }),
     },
+    server: {
+      headers: {
+        "Permissions-Policy": "interest-cohort=()",
+        "Cross-Origin-Embedder-Policy": "require-corp",
+        "Cross-Origin-Opener-Policy": "same-origin",
+        "Cross-Origin-Resource-Policy": "same-site",
+      },
+    },
   };
 });
