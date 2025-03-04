@@ -18,23 +18,17 @@ import Kanban from "./pages/Kanban";
 import NotFound from "./pages/NotFound";
 import { motion } from "framer-motion";
 import InitMember from "./data/InitMember";
-// import { AuthProvider } from "./contexts/AuthContext";
-
-// 배포 환경에 따른 기본 경로 설정
-const BASE_PATH = import.meta.env.MODE === "production" ? "/vite-test" : "";
+import { AuthProvider } from "./contexts/AuthContext";
 
 const ROUTES = [
-  {
-    path: ["/", BASE_PATH + "/", "/home", "/main", "/index"],
-    element: <Home />,
-  },
-  { path: BASE_PATH + "/team", element: <Team /> },
-  { path: BASE_PATH + "/project", element: <ProjectList /> },
-  { path: BASE_PATH + "/reports", element: <ReportsList /> },
-  { path: BASE_PATH + "/project/page/:id", element: <ProjectPage /> },
-  { path: BASE_PATH + "/contributors", element: <Contributors /> },
-  { path: BASE_PATH + "/mypage", element: <MyPage /> },
-  { path: BASE_PATH + "/kanban", element: <Kanban /> },
+  { path: ["/", "/vite-test", "/home", "/main", "/index"], element: <Home /> },
+  { path: "/team", element: <Team /> },
+  { path: "/project", element: <ProjectList /> },
+  { path: "/reports", element: <ReportsList /> },
+  { path: "/project/page/:id", element: <ProjectPage /> },
+  { path: "/contributors", element: <Contributors /> },
+  { path: "/mypage", element: <MyPage /> },
+  { path: "/kanban", element: <Kanban /> },
   { path: "/*", element: <NotFound /> },
 ];
 
