@@ -19,6 +19,7 @@ import NotFound from "./pages/NotFound";
 import { motion } from "framer-motion";
 import InitMember from "./data/InitMember";
 import { AuthProvider } from "./contexts/AuthContext";
+import RealtimeTable from "./pages/RealtimeTable";
 
 const ROUTES = [
   { path: ["/", "/vite-test", "/home", "/main", "/index"], element: <Home /> },
@@ -29,6 +30,7 @@ const ROUTES = [
   { path: "/contributors", element: <Contributors /> },
   { path: "/mypage", element: <MyPage /> },
   { path: "/kanban", element: <Kanban /> },
+  { path: "/realtime-table", element: <RealtimeTable /> },
   { path: "/*", element: <NotFound /> },
 ];
 

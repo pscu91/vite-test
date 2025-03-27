@@ -56,10 +56,20 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       headers: {
-        "Permissions-Policy": "interest-cohort=()",
-        "Cross-Origin-Embedder-Policy": "require-corp",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        "Cross-Origin-Resource-Policy": "cross-origin",
+        "Cross-Origin-Embedder-Policy": "credentialless",
         "Cross-Origin-Opener-Policy": "same-origin",
-        "Cross-Origin-Resource-Policy": "same-site",
+      },
+      proxy: {
+        "/storage.googleapis.com": {
+          target: "https://storage.googleapis.com",
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path) => path.replace(/^\/storage.googleapis.com/, ""),
+        },
       },
     },
   };
