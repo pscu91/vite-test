@@ -37,6 +37,10 @@ export default defineConfig(({ mode }) => {
     VITE_APP_ID: process.env.VITE_APP_ID || env.VITE_APP_ID || "",
     VITE_MEASUREMENT_ID:
       process.env.VITE_MEASUREMENT_ID || env.VITE_MEASUREMENT_ID || "",
+    VITE_FIREBASE_DATABASE_URL:
+      process.env.VITE_FIREBASE_DATABASE_URL ||
+      env.VITE_FIREBASE_DATABASE_URL ||
+      "",
   };
 
   return {
@@ -52,6 +56,7 @@ export default defineConfig(({ mode }) => {
         messagingSenderId: envValues.VITE_MESSAGING_SENDER_ID,
         appId: envValues.VITE_APP_ID,
         measurementId: envValues.VITE_MEASUREMENT_ID,
+        databaseURL: envValues.VITE_FIREBASE_DATABASE_URL,
       }),
     },
     server: {
