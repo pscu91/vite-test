@@ -7,6 +7,7 @@ function RealtimeTable() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   // Type별 스타일 정의
   const typeStyles = {
@@ -72,6 +73,63 @@ function RealtimeTable() {
     return <span className={`${baseStyle} ${colorStyle}`}>{type}</span>;
   };
 
+  // 이미지 모달 컴포넌트
+  const ImageModal = ({ url, onClose }) => {
+    if (!url) return null;
+
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
+        <div className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-lg bg-white p-2">
+          <button
+            onClick={onClose}
+            className="absolute right-6 top-4 rounded-full bg-white p-2 text-gray-600 shadow-md hover:bg-gray-100"
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <img
+            src={url}
+            alt="확대된 이미지"
+            className="max-h-[85vh] max-w-[85vw] object-contain"
+            onError={(e) => {
+              e.target.src = "https://via.placeholder.com/800?text=No+Image";
+            }}
+          />
+        </div>
+      </div>
+    );
+  };
+
+  // 이미지 썸네일 렌더링 함수
+  const renderImage = (url) => {
+    if (!url) return "-";
+    return (
+      <div className="flex items-center justify-center">
+        <img
+          src={url}
+          alt="thumbnail"
+          className="h-12 w-12 cursor-pointer rounded-lg object-cover shadow-sm transition-transform hover:scale-105"
+          loading="lazy"
+          onClick={() => setSelectedImage(url)}
+          onError={(e) => {
+            e.target.src = "https://via.placeholder.com/64?text=No+Image";
+          }}
+        />
+      </div>
+    );
+  };
+
   if (loading) {
     return (
       <div>
@@ -100,10 +158,11 @@ function RealtimeTable() {
     );
   }
 
-  console.log("렌더링할 데이터:", data);
+  //   console.log("렌더링할 데이터:", data);
 
   // 데이터 속성 정의
   const properties = [
+    "ImgURL",
     "Activity",
     "Type",
     "Start",
@@ -147,7 +206,9 @@ function RealtimeTable() {
                         ? formatDate(item[prop])
                         : prop === "Type"
                           ? renderTypeTag(item[prop])
-                          : item[prop] || "-"}
+                          : prop === "ImgURL"
+                            ? renderImage(item[prop])
+                            : item[prop] || "-"}
                     </td>
                   ))}
                 </tr>
@@ -156,6 +217,12 @@ function RealtimeTable() {
           </table>
         </div>
       </div>
+      {selectedImage && (
+        <ImageModal
+          url={selectedImage}
+          onClose={() => setSelectedImage(null)}
+        />
+      )}
     </div>
   );
 }
