@@ -1,4 +1,5 @@
 import PageTitle from "../assets/PageTitle";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -16,9 +17,11 @@ function Home() {
           <br />
           people think that you're busy.
         </blockquote>
-        <button className="focus:ring-opacity-75; w-fit transform rounded-lg bg-purple-500 px-4 py-2 font-semibold text-white shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-400">
-          Click me
-        </button>
+        <Link to="/realtime-table">
+          <button className="focus:ring-opacity-75; w-fit transform rounded-lg bg-purple-500 px-4 py-2 font-semibold text-white shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-400">
+            실시간 데이터 테이블 보기
+          </button>
+        </Link>
       </div>
     </div>
   );
