@@ -158,7 +158,7 @@ function RealtimeTable() {
     );
   }
 
-  console.log("렌더링할 데이터:", data);
+  //   console.log("렌더링할 데이터:", data);
 
   // 데이터 속성 정의
   const properties = [
