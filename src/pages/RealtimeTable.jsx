@@ -180,7 +180,7 @@ function RealtimeTable() {
     <div>
       <PageTitle>Seminar</PageTitle>
       <div className="mt-8 flex flex-col items-center justify-center">
-        <div className="w-fit overflow-hidden rounded-xl bg-white shadow-lg">
+        <div className="max-w-xs overflow-x-auto rounded-xl bg-white shadow-lg sm:max-w-screen-ss md:max-w-screen-sm xl:max-w-screen-md xxl:max-w-screen-xl xxxl:max-w-fit">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
