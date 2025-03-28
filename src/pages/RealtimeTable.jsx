@@ -8,6 +8,7 @@ function RealtimeTable() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [viewMode, setViewMode] = useState("list"); // 'list' 또는 'gallery'
 
   // Type별 스타일 정의
   const typeStyles = {
@@ -112,14 +113,15 @@ function RealtimeTable() {
   };
 
   // 이미지 썸네일 렌더링 함수
-  const renderImage = (url) => {
+  const renderImage = (url, size = "small") => {
     if (!url) return "-";
+    const imageSize = size === "small" ? "h-12 w-12" : "h-48 w-full";
     return (
       <div className="flex items-center justify-center">
         <img
           src={url}
           alt="thumbnail"
-          className="h-12 w-12 cursor-pointer rounded-lg object-cover shadow-sm transition-transform hover:scale-105"
+          className={`${imageSize} cursor-pointer rounded-lg object-cover shadow-sm transition-transform hover:scale-105`}
           loading="lazy"
           onClick={() => setSelectedImage(url)}
           onError={(e) => {
@@ -129,6 +131,92 @@ function RealtimeTable() {
       </div>
     );
   };
+
+  // 뷰 모드 토글 버튼
+  const ViewToggle = () => (
+    <div className="mb-4 flex justify-center">
+      <div className="inline-flex gap-2 rounded-lg p-1">
+        <button
+          className={`rounded-lg px-4 py-2 ${
+            viewMode === "list"
+              ? "bg-white text-gray-800 shadow"
+              : "text-gray-600"
+          }`}
+          onClick={() => setViewMode("list")}
+        >
+          <div className="flex items-center space-x-2">
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 10h16M4 14h16M4 18h16"
+              />
+            </svg>
+            <span>리스트 뷰</span>
+          </div>
+        </button>
+        <button
+          className={`rounded-lg px-4 py-2 ${
+            viewMode === "gallery"
+              ? "bg-white text-gray-800 shadow"
+              : "text-gray-600"
+          }`}
+          onClick={() => setViewMode("gallery")}
+        >
+          <div className="flex items-center space-x-2">
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+              />
+            </svg>
+            <span>갤러리 뷰</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  );
+
+  // 갤러리 뷰 컴포넌트
+  const GalleryView = ({ data }) => (
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {data.map((item) => (
+        <div
+          key={item.id}
+          className="overflow-hidden rounded-lg bg-white shadow-lg transition-transform hover:shadow-xl"
+        >
+          {renderImage(item.ImgURL, "large")}
+          <div className="p-4">
+            <h3 className="mb-2 text-lg font-semibold text-gray-800">
+              {item.Activity}
+            </h3>
+            <div className="mb-2">{renderTypeTag(item.Type)}</div>
+            <p className="mb-2 text-sm text-gray-600">
+              {formatDate(item.Start)}
+            </p>
+            <p className="mb-2 text-sm text-gray-600">{item.Location}</p>
+            <p className="text-sm text-gray-500">{item.Owner}</p>
+            <p className="mt-2 line-clamp-2 text-sm text-gray-600">
+              {item.Contents}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 
   if (loading) {
     return (
@@ -179,42 +267,51 @@ function RealtimeTable() {
   return (
     <div>
       <PageTitle>Seminar</PageTitle>
-      <div className="mt-8 flex flex-col items-center justify-center">
-        <div className="max-w-xs overflow-x-auto rounded-xl bg-white shadow-lg sm:max-w-screen-ss md:max-w-screen-sm xl:max-w-screen-md xxl:max-w-screen-xl xxxl:max-w-fit">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                {properties.map((prop) => (
-                  <th
-                    key={prop}
-                    className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
-                  >
-                    {prop}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-200 bg-white">
-              {filteredData.map((item) => (
-                <tr key={item.id}>
-                  {properties.map((prop) => (
-                    <td
-                      key={`${item.id}-${prop}`}
-                      className="whitespace-nowrap px-6 py-4 text-left text-sm text-gray-500"
-                    >
-                      {prop === "Start"
-                        ? formatDate(item[prop])
-                        : prop === "Type"
-                          ? renderTypeTag(item[prop])
-                          : prop === "ImgURL"
-                            ? renderImage(item[prop])
-                            : item[prop] || "-"}
-                    </td>
+      <ViewToggle />
+      <div className="mt-8 px-4">
+        <div className="flex justify-center">
+          {viewMode === "list" ? (
+            <div className="max-w-xs overflow-x-auto rounded-xl bg-white shadow-lg transition-all ease-in sm:max-w-screen-ss md:max-w-screen-sm xl:max-w-screen-md xxl:max-w-screen-xl xxxl:max-w-fit">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    {properties.map((prop) => (
+                      <th
+                        key={prop}
+                        className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+                      >
+                        {prop}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200 bg-white">
+                  {filteredData.map((item) => (
+                    <tr key={item.id}>
+                      {properties.map((prop) => (
+                        <td
+                          key={`${item.id}-${prop}`}
+                          className="whitespace-nowrap px-6 py-4 text-left text-sm text-gray-500"
+                        >
+                          {prop === "Start"
+                            ? formatDate(item[prop])
+                            : prop === "Type"
+                              ? renderTypeTag(item[prop])
+                              : prop === "ImgURL"
+                                ? renderImage(item[prop])
+                                : item[prop] || "-"}
+                        </td>
+                      ))}
+                    </tr>
                   ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="w-full max-w-7xl">
+              <GalleryView data={filteredData} />
+            </div>
+          )}
         </div>
       </div>
       {selectedImage && (
