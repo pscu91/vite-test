@@ -271,7 +271,7 @@ function RealtimeTable() {
       <div className="mt-8 px-4">
         <div className="flex justify-center">
           {viewMode === "list" ? (
-            <div className="max-w-xs overflow-x-auto rounded-xl bg-white shadow-lg transition-all ease-in sm:max-w-screen-ss md:max-w-screen-sm xl:max-w-screen-md xxl:max-w-screen-xl xxxl:max-w-fit">
+            <div className="max-w-xs overflow-x-auto rounded-xl bg-white shadow-lg sm:max-w-screen-ss md:max-w-screen-sm xl:max-w-screen-md xxl:max-w-screen-xl xxxl:max-w-fit">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
                   <tr>
